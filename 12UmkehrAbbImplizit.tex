@@ -1,0 +1,156 @@
+\section{Umkehrabbildungen \& Implizite Funktionen}
+
+\begin{defn}
+Eine $C^1$-Abbildung $f: \R^n\hookrightarrow\R^m$ mit $n\ge m$ heißt
+\emph{regulär im Punkt $x_0\in\R^n$} und $x_0$ heißt \emph{regulärer Punkt},
+wenn $\D f(x_0)$ surjektiv ist, andernfalls \emph{singulär}. $f$ heißt
+\emph{regulär}, wenn $f$ in jedem Punkt regulär ist.
+\end{defn}
+\begin{defn}
+Sei $\Omega \subset \R^n$ offen, dann heißt eine $C^1$-Abbildung $\ph: \Omega\to
+\R^n$ ein \emph{Diffeomorphimus} auf $\Omega$, wenn
+\begin{enumerate}
+  \item $\Omega' = \ph(\Omega)$ offen ist,
+  \item $\ph: \Omega\to\Omega'$ bijektiv abbildet,
+  \item $\ph^{-1}: \Omega'\to\Omega$ ebenfalls $C^1$ ist.
+\end{enumerate}
+\end{defn}
+\begin{defn}
+Ein \emph{Lipeomorphismus} ist eine bijektive Abbildung zwischen zwei offenen
+Mengen, die in beiden Richtungen lipschitz ist.
+\end{defn}
+\begin{defn}
+Eine \emph{offene Abbildung} bildet jede offene Menge auf eine offene
+Menge ab.
+\end{defn}
+\begin{defn}
+Für lipschitzstetige Abbildungen $f: \Omega\to\R^n$ wird durch
+\begin{align*}
+[f]_\Omega = \sup\limits_{v\neq u} \frac{\norm{f(v)-f(u)}}{\norm{v-u}},
+\end{align*}
+eine Seminorm definiert. $[f]_\Omega$ ist die bestmögliche Lipschitzkonstante
+von $f$ auf $\Omega$.
+\end{defn}
+
+\subsection{Sätze für Abbildungen $\ph: \R^n\hookrightarrow\R^n$}
+
+\begin{prop}
+Ein Diffeomorphimus ist in jedem Punkt regulär.
+\end{prop}
+\begin{prop}
+Eine $C^1$ Abbildung $\ph: \Omega \to \Omega'$ ist genau dann diffeomorph, wenn
+sie regulär und bijektiv ist.
+\end{prop}
+\begin{prop}
+Ist $\Omega$ konvex und $f\in C^1(\Omega)$, dann gilt
+\begin{align*}
+\norm{\D f} = [f]_\Omega.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sei $\Omega\subset\R^n$ offen und konvex und $f\in C^2(\Omega,\R^n)$. Gilt für
+jedes $x\in\Omega$
+\begin{align*}
+\lin{\D f(x)h,h} > 0,\quad h\in \R^n\setminus\{0\},
+\end{align*}
+so ist $f$ auf $\Omega$ umkehrbar.
+\end{prop}
+\begin{prop}
+Lokal um einen regulären Punkt ist eine $C^1$ Abbildung diffeomorph.
+\end{prop}
+% \begin{prop}[Quintessenz]
+% Ist das linearisierte Problem global lösbar, ist das nichtlinearisierte Problem
+% lokal lösbar.
+% \end{prop}
+
+\subsection{Beweis des Satzes über Umkehrabbildungen}
+
+\begin{prop}[Banachscher Fixpunktsatz]
+Sei $(E,\norm{\cdot})$ Banachraum, $X\subset E$ eine abgeschlossene Teilmenge
+und $T: X\to X$ eine Kontraktion, d.h. es existiert eine Konstante
+$0<\theta<1$, sodass
+\begin{align*}
+\norm{Tv-Tu}\le\theta\norm{v-u},\quad v,u\in X
+\end{align*}
+dann besitzt $T$ genau einen Fixpunkt $\xi$.
+\end{prop}
+\begin{prop}[Spezialfall]
+Sei $\ph: \R^n\hookrightarrow\R^n$ stetig differenzierbar mit
+\begin{align*}
+\ph(0) = 0, \quad \D\ph(0) = \Id,
+\end{align*}
+dann ist $\ph$ lokal um $0$ diffeomorph.
+\end{prop}
+\begin{prop}
+Es genügt den Spezialfall zu beweisen, der allgemeine Fall folgt daraus. 
+\end{prop}
+\begin{prop}
+Erfüllt $\ph$ den Spezialfall, so existiert ein $r > 0$, sodass
+\begin{align*}
+&[\ph-\id]_{B_r(0)} < \frac{1}{4}.
+\end{align*}
+Für alles weitere fixiert man $A = B_{r/2}(0), B = B_r(0)$
+\end{prop}
+\begin{prop}[Proposition A]
+Ist $\ph: B\to \R^n$ lipschitz mit $[\ph-\id]_B < 1$, so ist $\ph$ injektiv.
+\end{prop}
+\begin{prop}[Proposition B]
+Sei $\ph: B\to\R^n$ lipschitz mit
+\begin{align*}
+\ph(0) = 0,\quad [\ph-\id]_B < \frac{1}{4}.
+\end{align*}
+Dann existiert eine stetige Abbildung $\psi: A\to B$ mit
+\begin{align*}
+\psi(0) = 0,\quad [\psi-\id]_A < \frac{1}{2},
+\end{align*}
+sodass $\ph\circ\psi = \id_A$ ist.
+\end{prop}
+\begin{prop}[Proposition C]
+Sei $\ph: B\to\R^n$ lipschitz mit
+\begin{align*}
+\ph(0) = 0,\quad [\ph-\id]_B < \frac{1}{4}.
+\end{align*}
+Dann definiert $\ph$ ein Lipeomorphismus von einer Umgebung $U\subset B$ von $0$
+auf $A$ mit
+\begin{align*}
+\ph^{-1}(0) = 0,\quad [\ph^{-1}-\id]_A\le \frac{1}{2}.
+\end{align*}
+\end{prop}
+\begin{prop}[Proposition D]
+Ist $\ph$ in Proposition C von der Klasse $C^1$, so definiert $\ph$ einen
+Diffeomorphismus von $U$ auf $A$. Ist $\ph$ außerdem $C^r$, so ist $\ph^{-1}$ ebenfalls $C^r$.
+\end{prop}
+
+\subsection{Satz über implizite Funktionen}
+
+\begin{prop}[Satz über implizite Funktionen (IFS)]
+Sei $m<n$,
+\begin{align*}
+f : \R^m\times\R^{n-m} \hookrightarrow \R^m,
+\end{align*}
+stetig differenzierbar und $f(u_0,v_0) = w_0$. Ist $(u_0,v_0)$ ein regulärer
+Punkt von $f$, so existieren Umgebungen $U\times V$ von $(u_0,v_0)$ und $W$ von
+$w_0$, sowie eine stetig differenzierbare Abbildung
+\begin{align*}
+g: W\times V \to U,\quad g(w,v) = u,
+\end{align*}
+so dass für jedes $w\in W$ gilt
+\begin{align*}
+\setdef{(u,v)\in U\times V}{f(u,v) = w} = \setdef{(g(w,v),v)}{v\in V}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Für jedes $w\in W$ existiert die Ableitung der impliziten Funktion und es gilt
+\begin{align*}
+g_v(v) = f_u^{-1}f_v\big|_{(g(v),v)}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sei $f:\R^n\hookrightarrow\R^m$ stetig differenzierbar. Ist $p_0$ ein regulärer
+Punkt, so ist lokal um $p_0$ die Niveaumenge
+\begin{align*}
+\setdef{x}{f(x) = f(p_0)},
+\end{align*}
+darstellbar als Graph einer stetig differenzierbaren Funktion $g:
+\R^{n-m}\hookrightarrow\R^m$.
+\end{prop}

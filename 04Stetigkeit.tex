@@ -1,0 +1,233 @@
+\section{Stetigkeit}
+
+\begin{defn} Eine Abbildung $f: D\to W$ heißt \emph{stetig im Punkt} $a\in V$,
+wenn es zu jedem $\ep > 0$ ein $\delta > 0$ gibt, sodass
+\begin{align*}
+&\norm{f(x)-f(a)}_W < \ep,\quad x\in B_\delta(a) \cap D.
+\end{align*}
+Mit Quantoren ausgedrückt
+\begin{align*}
+&\forall \ep > 0 \exists \delta > 0 \forall x\in B_\delta(a) \cap D :
+\norm{f(x)-f(a)}_W < \ep.
+\end{align*}
+Ist $f$ in $a$ nicht stetig, heißt sie dort \emph{unstetig}.
+\end{defn}
+\begin{defn}
+Eine Abbildung heißt \emph{stetig}, wenn sie in allen Punkten ihres
+Definitionsbereichs stetig ist.
+\end{defn}
+\begin{defn} Eine Abbildung $f: D\to W$ heißt \emph{gleichmäßig stetig} auf $D$,
+wenn
+\begin{align*}
+&\forall \ep > 0 \exists \delta > 0 \forall x_0,x \in D : \norm{x-x_0}_V <
+\delta \Rightarrow \norm{f(x)-f(x_0)}_W < \ep.
+\end{align*}
+\end{defn}
+\begin{defn} Eine Abbildung $f: D\to W$ heißt \emph{lipschitzstetig} auf $D$,
+wenn es eine Konstante $L\ge 0$ gibt, sodass für $x,a\in D$ gilt
+\begin{align*}
+\norm{f(x)-f(a)}_W \le L \norm{x-a}_V.
+\end{align*} 
+Dabei ist die beste \emph{Lipschitz-Konstante}
+\begin{align*}
+L = \sup \limits_{\atop{x,y\in
+D}{x\neq y}} \frac{\norm{f(x)- f(y)}_W}{\norm{x-y}_V}.
+\end{align*}
+\end{defn}
+% \begin{defn}
+% Eine Funktion $f: I \to \R$ heißt streng monoton fallend, falls
+% \begin{align*}
+% u < v \Rightarrow f(u) < f(v).
+% \end{align*}
+% \end{defn}
+\begin{defn}
+Den \emph{Raum der Funktionen} auf $D$ bezeichnet man mit \emph{$F(D)$}.
+\end{defn}
+\begin{defn}
+Den \emph{Raum der beschränkten Funktionen} auf $D$ bezeichnet man mit
+\emph{$B(D)$}.
+\end{defn}
+\begin{defn}
+Den \emph{Raum der stetigen Funktionen} auf $D$ bezeichnet man mit
+\emph{$C(D)$}.
+\end{defn}
+\begin{defn}
+Den \emph{Raum der beschränkten stetigen Funktionen} auf $D$ bezeichnet man mit
+\emph{$CB(D)$}.
+\end{defn}
+\begin{defn}
+Eine Folge $(f_n)$ in $F(D)$ \emph{konvergiert punktweise} gegen eine Funktion
+$f\in F(D)$, falls
+\begin{align*}
+\forall x \in D \forall \ep > 0 \exists N_0 \ge 0 : \norm{f_n(x)-f(x)} <
+\ep.
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Folge $(f_n)$ in $F(D)$ \emph{konvergiert gleichmäßig} gegen eine Funktion
+$f\in F(D)$, falls
+\begin{align*}
+\forall \ep > 0 \exists N_0 \ge 0 : \norm{f_n - f} < \ep.
+\end{align*}
+\end{defn}
+
+\subsection{Beispiele stetiger Funktionen}
+
+\begin{enumerate}
+  \item Auf einem beliebigen normierten Raum sind die $\id$ und die konstanten
+Funktionen lipschitz.
+  \item Auf $\C$ sind $\Re z$ und $\Im z$ lipschitz.
+  \item Jede Norm $\norm{\cdot}$ auf dem $\R^n$ ist lipschitz.
+  \item Jedes reelle Polynom ist stetig.
+  \item Die Wurzelfunktion ist stetig auf $[0,\infty)$ und für jedes $b>0$ auf
+  $[0,b]$ gleichmäßig aber nicht lipschitzstetig.
+\end{enumerate}
+
+\subsection{Sätze für Funktionen in beliebigen normierten Räumen}
+
+\begin{prop}[Folgenkriterium]
+Eine Funktion $f: D\to F$ ist stetig in $a$ genau dann, wenn für jede Folge
+$x_n \to a$ gilt $f(x_n) \to f(a)$.
+\end{prop}
+\begin{prop}[Folgenkriterium für Grenzwerte]
+Ist $f: D\to F$ stetig, und $a\in D$ dann gilt 
+\begin{align*}
+\lim \limits_{x\to a} f(x) = w,
+\end{align*}
+genau dann wenn für jede Folge $x_n \to a, x_n\neq a$ gilt
+\begin{align*}
+\lim \limits_{n\to\infty} f(x_n) = w.
+\end{align*}
+\end{prop}
+\begin{prop}
+$C(D)$, ist eine Algebra.
+\end{prop}
+\begin{prop}
+Ist $f$ auf $D$ stetig und $g$ auf einer Obermenge von $f(D)$, dann ist $g\circ
+f$ ebenfalls stetig.
+\end{prop}
+\begin{prop}
+$f: D\to F$ ist stetig in $a$ genau dann, wenn $f^{-1}(U_\ep(f(a)))$ für jedes
+$\ep > 0$ eine $D$-relative Umgebung $U_\delta(a)$ enthält.
+\end{prop}
+% \begin{prop}
+% $f: D\to F$ ist stetig auf $D$ genau dann, das Urbild $f^{-1}(A)$ jeder
+% abgeschlossenen Menge $A$ abgeschlossen ist.
+% \end{prop}
+\begin{prop}
+$f: D\to F$ ist stetig auf $D$ genau dann, das Urbild $f^{-1}(A)$ jeder
+offenen Menge $A$ offen ist.
+\end{prop}
+\begin{prop}
+Ist $K\subset E$ kompakt und $f: E\to F$ stetig, dann ist auch $f(K)$
+kompakt.
+\end{prop}
+\begin{prop}
+Ist $K\subset E$ kompakt und $f: E\to F$ stetig, dann ist $f\big|_K$
+gleichmäßig stetig.
+\end{prop}
+\begin{prop}
+Sind $M,N$ kompakt und $f: M\to N$ bijektiv und stetig, dann ist $f^{-1}$
+ebenfalls stetig.
+\end{prop}
+\begin{prop}
+Ist $K\subset E$ kompakt und $f: K\to \R$ stetig, dann nimmt $f$ sein Minimum
+und sein Maximum an.
+\end{prop}
+\begin{prop}
+Ist $a$ ein Häufungspunkt im Definitionsbereich der Funktion $f: D\to F$, und
+existiert der Grenzwert $\lim \limits_{x\to a} f(x) = w$, so ist die Funktion
+\begin{align*}
+\tilde{f}: D\cup \{a\} \to F,\quad \tilde{f}(x) = \begin{cases}w, & \text{für }
+x = a\\ f(x), & \text{sonst},
+       \end{cases}
+\end{align*}
+stetig in $a$.
+\end{prop}
+
+\subsection{Sätze für Funktionen in Banachräumen}
+
+\begin{prop}
+Konvergiert eine Funktionenfolge $(f_n)$ in $F(D)$ gleichmäßig gegen $f$ und
+sind alle $f_n$ stetig (integrierbar), dann ist auch $f$ stetig
+(integrierbar).
+\end{prop}
+\begin{prop}
+Konvergiert eine Folge $(f_n)$ differenzierbarer Funktionen in $F(D)$ punktweise
+gegen $f$ und die Folge der Ableitungen $(f_n')$ gleichmäßig gegen $g$, dann ist
+$f$ differenzierbar mit Ableitung $g$.
+\end{prop}
+\begin{prop}
+$B(D)$ und $CB(D)$ sind mit der Supremumsnorm Banachräume.
+\end{prop}
+\begin{prop}
+Ist $K$ eine kompakte Menge, dann ist $C(K)$ mit der Supremumsnorm
+Banachraum.
+\end{prop}
+\begin{prop}
+Ist $f: D\to F$ lipschitz, dann existiert genau eine stetige Forstetzung 
+\begin{align*}
+\Phi: D^- \to F,\quad \Phi|_D = f,
+\end{align*}
+von $f$. Sie ist lipschitz mit der selben $L$-Konstante wie $f$.
+\end{prop}
+
+\subsection{Sätze für reellwertige Funktionen}
+
+\begin{prop}
+Ist $K\subset E$ kompakt und $f: K\to \R$ stetig, dann ist $f$ gleichmäßig
+stetig.
+\end{prop}
+\begin{prop}
+Sind $f,g$ stetige Funktionen und $\lim \limits_{x\to a} f(a) = u, \lim
+\limits_{x\to a} g(a) = v$, dann gilt
+\begin{enumerate}
+  \item $\lim \limits_{x\to a} (\lambda f + \mu g)(a) = \lambda u + \mu v$.
+  \item $\lim \limits_{x\to a} (fg)(a) = uv$.
+  \item $\lim \limits_{x\to a} (fg^{-1})(a) = uv^{-1}$, für $v\neq 0$.
+
+  Gilt außerdem in einer punktierten Umgebung von $a$ $f(x) \le g(x)$, dann gilt
+  \item $\lim \limits_{x\to a} f(a) \le \lim \limits_{x\to a} g(a)$.
+\end{enumerate}
+\end{prop}
+
+\subsection{Sätze für Funktionen auf einem Intervall $f: I\to\R$}
+
+\begin{prop}[Zwischenwertsatz von Bolzano]
+Ist  $f: [a,b]\to \R$ stetig und $f(a)<f(b)$, dann gibt es zu jedem $w\in
+\R: f(a) \le w \le f(b)$ ein $c\in[a,b]$, sodass $f(c) = w$.
+\end{prop}
+\begin{prop}
+Ist $I$ ein Intervall und $f: I\to\R$ stetig, dann nimmt $f$ jeden
+Wert zwischen $\inf f$ und $\sup f$ mindestens einmal an.
+\end{prop}
+\begin{prop}
+Ist $I$ ein Intervall und $f: I\to\R$ stetig, dann ist auch $f(I)$ ein
+Intervall.
+\end{prop}
+\begin{prop}[Satz über stetige Umkehrfunktionen]
+Ist $I$ ein Intervall, $f: I\to\R$ stetig und streng monoton steigend, dann
+gilt
+\begin{enumerate}
+  \item $f(I) = J$ ist ein Intervall.
+  \item $f: I\to J$ ist bijektiv und besitzt eine Umkehrfunktion $f^{-1}: J \to
+  I$.
+  \item $f^{-1}$ ist stetig und streng monoton steigend auf $J$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Für $n\ge 2$ besitzt die Funktion $t\mapsto t^n$ eine stetige streng monoton
+steigende Umkehrfunktion, die $n$-te Wurzel.
+\end{prop}
+\begin{prop}
+Ist $f: \R\to\R$ monoton, so existieren in jedem Punkt die links- und
+rechtsseitigen Grenzwerte von $f$.
+\end{prop}
+% \begin{prop}
+% Ist $f: [a,b]\to \R$ stetig, dann existieren $u,v\in[a,b]$, sodass
+% $f(u)\le f(x)\le f(v)$.
+% \end{prop}
+% \begin{prop}
+% Eine stetige Funktion auf einem abgeschlossenen Intervall ist beschränkt und
+% bildet dieses wieder auf ein abgeschlossenes Intervall ab.
+% \end{prop}

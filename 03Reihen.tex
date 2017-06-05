@@ -1,0 +1,116 @@
+\section{Reihen}
+
+\begin{defn}
+Eine \emph{Reihe} ist ein Ausdruck der Form $\sum \limits_{k=1}^\infty
+a_k$.
+\end{defn}
+\begin{defn}
+Die endlichen Summen $\sum \limits_{k=1}^n a_k$ heißen \emph{$n$-te
+Partialsummen} der Reihe.
+\end{defn}
+
+\begin{defn}
+Eine Reihe heißt \emph{konvergent}, falls die Folge ihrer Partialsummen
+konvergiert, andernfalls \emph{divergent}.
+\end{defn}
+
+\begin{defn}
+Eine Reihe heißt \emph{absolut konvergent}, falls ihre Absolutreihe $\sum_k
+\abs{a_k}$ konvergiert. Ist eine Reihe konvergent aber nicht absolut konvergent, heißt sie
+\emph{bedingt konvergent}.
+\end{defn}
+
+\begin{defn}
+Eine reelle Reihe $\sum_k b_k$ mit nichtnegativen Gleidern heißt
+\emph{Majorante} der Reihe $\sum_k a_k$, wenn für fast alle Folgenglieder gilt $\abs{a_k} \le
+b_k$.
+\end{defn}
+
+\subsection{Beispiele}
+\begin{enumerate}
+  \item Die geometrische Reihe
+  $\sum \limits_{n=0}^\infty q^n$ konvergiert, falls $\abs{q} < 1$.
+  \item Die harmonische Reihe
+  $\sum \limits_{n=1}^\infty \frac{1}{n}$ divergiert.
+  \item Die alternierende harmonische Reihe
+  $\sum \limits_{n=1}^\infty \frac{(-1)^n}{n}$ ist bedingt konvergent.
+  \item Die Zetafunktion
+  $\sum \limits_{n=1}^\infty \frac{1}{n^r}$ konvergiert für $r>1$ und
+  divergiert für $r\le1$.
+  \item Die Exponentialreihe
+  $\sum \limits_{n=0}^\infty \frac{z^n}{n!}$ ist für jedes $z\in\C$
+  konvergent.
+\end{enumerate}
+
+\subsection{Sätze für Reihen in Banachräumen}
+
+\begin{prop}[Nullfolgenkriterium]
+Ist eine Reihe $\sum_k a_k$ konvergent, bilden ihre Glieder $a_k$ eine
+Nullfolge.
+\end{prop}
+
+\begin{prop}[Cauchykriterium]
+Ist eine Reihe $\sum_k a_k$ konvergent, dann gilt
+
+$\forall \ep > 0 \exists N_0 \ge 0 \forall m,n \ge N : \norm{\sum
+\limits_{k=n}^m a_k} < \ep$.
+\end{prop}
+
+\begin{prop}
+Eine Reihe ist absolut konvergent, genau dann wenn ihre Absolutreihe beschränkt
+ist. Jede absolut konvergente Reihe ist auch konvergent.
+\end{prop}
+
+\begin{prop}[Umordnungssatz]
+Ist eine Reihe absolut konvergent, so ist auch jede Umordnung dieser Reihe
+absolut konvergent.
+\end{prop}
+
+\begin{prop}[Majorantenkriterium]
+Sei $\sum_k a_k$ eine Reihe. Existiert eine reelle konvergente Reihe $\sum_k
+b_k$ so, dass für fast alle $k$ gilt $\norm{a_k} \le b_k$, dann ist $\sum_k a_k$
+absolut konvergent.
+\end{prop}
+
+\begin{prop}[Wurzelkriterium]
+Sei $\sum_k a_k$ eine Reihe. Existiert dann ein $q < 1$, sodass gilt
+\begin{align*}
+\sqrt[n]{\norm{a_n}} \le q, \text{ für fast alle } n,
+\end{align*}
+konvergiert die Reihe absolut. Gilt andernfalls
+\begin{align*}
+\sqrt[n]{\norm{a_n}} \ge 1,\text{ für unendlich viele } n,
+\end{align*}
+dann divergiert die Reihe.
+\end{prop}
+
+\begin{prop}[Quotientenkriterium]
+Sei $\sum_k a_k$ eine Reihe. Existiert dann ein $q < 1$, sodass gilt
+\begin{align*}
+\frac{\norm{a_{n+1}}}{\norm{a_n}} \le q, \text{ für fast alle } n,
+\end{align*}
+konvergiert die Reihe absolut. Gilt andernfalls
+\begin{align*}
+\frac{\norm{a_{n+1}}}{\norm{a_n}} \ge 1, \text{ für unendlich viele } n,
+\end{align*}
+dann divergiert die Reihe.
+\end{prop}
+
+\subsection{Sätze für Reihen in $\R$}
+
+\begin{prop}
+Ist eine reelle Reihe konvergent aber nicht absolut konvergent, so existiert zu
+jeder Zahl $s\in\R$ eine Umordnung, sodass die Reihe gegen $s$
+konvergiert.
+\end{prop}
+
+\begin{prop}[Leibnizkriterium]
+Die alternierende Reihe $\sum_k (-1)^k a_k$ konvergiert, falls $(a_k)$ eine
+monoton fallende Nullfolge ist.
+\end{prop}
+
+\begin{prop}[Verdichtungssatz]
+Ist $(a_n)$ eine reelle, monoton fallende Nullfolge, dann sind die Reihen
+$\sum_k a_k$ und $\sum_k 2^ka_{2^k}$ entweder beide konvergent oder beide
+divergent.
+\end{prop}

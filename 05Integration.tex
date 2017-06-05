@@ -1,0 +1,154 @@
+\section{Integration}
+
+\begin{defn}
+Eine \emph{Zerlegung} $Z$ eines Intervalls $[a,b]$ ist ein Tupel reeller Zahlen
+mit
+\begin{align*}
+a = t_1 < \ldots < t_n = b.
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Funktion $\ph: [a,b]\to\R$ heißt \emph{Treppenfunktion}, wenn eine
+Zerlegung und reelle Zahlen $c_1, \ldots, c_k$ existieren, sodass
+\begin{align*}
+\ph(x)\big|_{t_k,t_{k+1}} = c_k.
+\end{align*}
+Der Raum der Treppenfunktionen auf $[a,b]$ wird mit $T_a^b$ bezeichnet.
+\end{defn}
+\begin{defn}
+Das \emph{Integral der Treppenfunktion} ist
+\begin{align*}
+J_a^b(\ph) = \sum \limits_{k=1}^{n} \ph(t_k)(t_{k} - t_{k-1}).
+\end{align*}
+\end{defn}
+\begin{defn}
+Der Abschluss von $T_a^b$ bezüglich der Supremumsnorm heißt \emph{Raum der
+Regelfunktionen} auf $[a,b]$ und wird mit $R_a^b$ bezeichnet.
+
+Die stetige Fortsetzung von $J_a^b$ heißt \emph{Cauchyintegral} auf $[a,b]$ und
+wird mit $\int_a^b$ bezeichnet.
+\end{defn}
+\begin{defn}
+Es sei $a<b\le\infty$, und die Funktion $f: [a,b)\to \R$ sei über jedem
+kompakten Intervall $[a,c]\subseteq [a,b)$ integrabel. Existiert der Limes
+\begin{align*}
+\int_a^b f(x)\dx = \lim_{c\to b}\int_a^c f(x)\dx,
+\end{align*}
+so heißt er das \emph{uneigentliche Integral} von $f$ über $[a,b)$ und man sagt,
+das uneigentliche Integral \emph{konvergiert}. Andernfalls sagt man, es
+\emph{divergiert}.
+
+Analoges gilt für $f: (a,b]\to\R$ und $-\infty \le a < b$.
+\end{defn}
+\begin{defn}
+Das Integral $\int_a^b f(x)\dx$ heißt \emph{absolut konvergent}, falls
+das \emph{Absolutintegral}
+\begin{align*}
+\int_a^b \abs{f(x)}\dx
+\end{align*}
+existiert.
+\end{defn}
+
+\subsection{Sätze für Treppenfunktionen}
+\begin{prop}
+$T_a^b \le B_a^b$.
+\end{prop}
+\begin{prop}
+Das Integral $J_a^b(\ph)$ hängt nicht von der Darstellung von $\ph$ ab.
+\end{prop}
+\begin{prop}
+Das Funktional
+\begin{align*}
+J_a^b : T_a^b \to \R,\quad\ph \mapsto J_a^b(\ph),
+\end{align*}
+hat die Eigenschaften.
+\begin{enumerate}
+  \item Lineartiät. $J_a^b(\lambda \ph + \mu \psi) = \lambda J_a^b(\ph) + \mu
+  J_a^b(\psi)$.
+  \item Monotonie. $\ph \le \psi \Rightarrow J_a^b(\ph) \le J_a^b(\psi)$.
+  \item Normiertheit. $\ph\big|_{(a,b)} = c \Rightarrow J_a^b(\ph) = c(b-a)$.
+  \item Lipschitzstetigkeit mit $L$-Konstante $(b-a)$.
+\end{enumerate}
+\end{prop}
+
+\subsection{Sätze für das Cauchyintegral}
+\begin{prop}
+Das Cauchyintegral hat die selben Eigenschaften wie das Integral der
+Treppenfunktionen.
+\end{prop}
+\begin{prop}[Intervalladditivität]
+Vereinbart man $\int_a^b f(x)\dx = -\int_b^a f(x)\dx$, dann gilt auf einem
+Intervall, das $a,b,c$ umfasst
+\begin{align*}
+f\in R_a^b \Leftrightarrow f\in R_a^c \text{ und } f\in
+R_c^b
+\end{align*}
+und außerdem
+\begin{align*}
+\int_a^b f(x)\dx = \int_a^c f(x)\dx + \int_c^b f(x)\dx.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f$ auf $[a,b]$ integrierbar, dann auch $\abs{f}$ und es gilt
+\begin{align*}
+\abs{\int_a^b f(x)\dx} \le \int_a^b \abs{f(x)}\dx.
+\end{align*}
+\end{prop}
+\begin{prop}[Riemann'sches Lemma]
+Ist $f$ auf $I$ integrierbar und in $c\in[a,b]$ stetig, dann gilt
+\begin{align*}
+\lim\limits_{h\to0} \frac{1}{h} \int_{c}^{c+h} f(x) \dx = f(c).
+\end{align*}
+\end{prop}
+\begin{prop}[Mittelwertsatz der Integralrechnung]
+Sei $f$ auf $[a,b]$ stetig, $p$ auf $[a,b]$ integrabel und $p\ge0$, dann gibt es
+ein $c\in[a,b]$, sodass
+\begin{align*}
+\int_{a}^b (fp)(x) \dx = f(c)\int_a^b p(x)\dx.
+\end{align*}
+\end{prop}
+% \begin{prop}
+% Eine Regelfunktion $f\in R_a^b$ besitzt in jedem Punkt von $[a,b]$ links- und
+% rechtsseitige Grenzwerte.
+% \end{prop}
+\begin{prop}
+Eine Funktion $f: [a,b]\to\R$ ist eine Regelfunktion genau dann, wenn
+sie in jedem Punkt links- und rechtsseitige Grenzwerte besitzt.
+Insbesondere sind stetige und monotone Funktionen Regelfunktionen.
+\end{prop}
+\begin{prop}
+Eine Regelfunktion besitzt nur abzählbar viele Unstetigkeitsstellen.
+\end{prop}
+\subsection{Sätze für das uneigentliche Integral}
+\begin{prop}
+Ist $a<b\le\infty$ und $f: [a,b)\to\R$, so sind folgende Aussagen äquivalent.
+\begin{enumerate}
+  \item Das uneigentliche Integral $\int\limits_a^b f(x)\dx$ konvergiert.
+  \item Für jede Stammfunktion $F$ von $f$ existiert $\lim\limits_{x\to b}
+  F(x)$.
+  \item Es gilt das Cauchykriterium. Zu jedem $\ep > 0$ existiert ein
+  $c\in[a,b)$, sodass
+  \begin{align*}
+  \abs{\int_u^v f(x) dx} < \ep, 
+  \end{align*}
+  für alle $u,v\in (c,b)$.
+\end{enumerate}
+\end{prop}
+\begin{prop}[Satz von der absoluten Konvergenz]
+Das uneigentliche Integral $\int_a^b f(x)\dx$ ist genau dann absolut
+konvergent, wenn es beschränkt ist. In diesem Falle ist es auch
+konvergent.
+\end{prop}
+\begin{prop}[Majorantenkriterium]
+Gilt $\abs{f}\le g$ auf $[a,b)$ und existiert das Integral $\int_a^b g(x)\dx$,
+so ist $\int_a^b f(x)\dx$ absolut konvergent.
+\end{prop}
+\begin{prop}
+Nützliche Majoranten sind beispielsweise
+\begin{align*}
+  &\int_1^\infty \frac{\dx}{x^\alpha} < \infty \Leftrightarrow \alpha >
+  1,\\
+  &\int_0^1 \frac{\dx}{x^\alpha} < \infty \Leftrightarrow \alpha <
+  1.
+\end{align*}
+\end{prop}

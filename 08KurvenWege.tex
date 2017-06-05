@@ -1,0 +1,211 @@
+\section{Kurven und Wege}
+
+Im Folgenden sei $I=[a,b]$ ein kompaktes Intervall von $\R$ und $E$ Bannachraum.
+
+\begin{defn}
+Eine \emph{Kurve} ist eine $C^0$-Abbildung $\gamma: I\to E$.
+
+Ihr Bild $\gamma(I) = \setdef{\gamma(t) \in E}{t\in I}$
+heißt \emph{Spur}.
+\end{defn}
+\begin{defn}
+Eine Kurve $\gamma: [a,b]\to E$ heißt \emph{geschlossen}, falls $\gamma(a) =
+\gamma(b)$.
+\end{defn}
+\begin{defn}
+Eine Kurve $\gamma: [a,b]\to E$ heißt \emph{einfach} oder
+\emph{doppelpunktfrei}, falls $\gamma\big|_{(a,b]}$ und $\gamma\big|_{[a,b)}$ injektiv sind.
+\end{defn}
+\begin{defn}
+Eine Kurve $\gamma: I\to E$ heißt \emph{differenzierbar im Punkt} $t_0\in
+I$, wenn es einen Vektor $v\in E$ und eine in $t_0$ stetige Abbildung $r: I \to
+E$ mit $r(t_0) = 0$ gibt, sodass
+\begin{align*}
+\gamma(t) = \gamma(t_0) + v(t-t_0) + r(t)(t-t_0).
+\end{align*}
+In diesem Fall heißt $v$ die \emph{erste Ableitung} von $\gamma$ im Punkt $t_0$
+und wird mit $\dot{\gamma}(t_0)$ bezeichnet.
+\end{defn}
+\begin{defn}
+Ist $\gamma: I\to E$ in $t_0$ differenzierbar, dann bezeichnet man
+$\dot{\gamma}(t_0)$ als \emph{Tangentialvektor} von $\gamma$ im Punkt
+$\gamma(t_0)$ und $\abs{\dot{\gamma}(t_0)}$ als seine \emph{momentan
+Geschwindigkeit}.
+\end{defn}
+\begin{defn}
+Ist $\dot{\gamma}(t_0)\neq0$, so ist die \emph{Tangente} an $\gamma$ im Punkt
+$t_0$ gegeben durch
+\begin{align*}
+\alpha(t) = \gamma(t_0) + \dot{\gamma}(t_0)(t-t_0).
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine $C^1$-Kurve heißt \emph{regulär}, wenn ihre Ableitung nirgends
+verschwindet.
+\end{defn}
+\begin{defn}
+Die \emph{Länge} einer Kurve $\gamma\in C^0(I,E)$ ist
+\begin{align*}
+L_I(\gamma) = \sup\limits_T \sum_T \norm{\gamma(t_k)-\gamma(t_{k-1})}.
+\end{align*} 
+\end{defn}
+\begin{defn}
+$\gamma\in C^0(I,E)$ heißt \emph{rektifizierbar}, falls $L_I(\gamma) <
+\infty$.
+\end{defn}
+\begin{defn}
+Sei $\gamma\in C^0(I,E)$. Die \emph{Längenfunktion} ist definiert als
+\begin{align*}
+\lambda : I \to \R,\quad \lambda(t) = L_{[a,t]}(\gamma).
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine \emph{Parametertransformation} ist eine bijektive stetige Abbildung $\ph:
+I\to I^*$ eines Intervalls $I$ auf ein Intervall $I^*$. Ist $\ph$ monoton steigend
+heißt $\ph$ \emph{orientierungstreu}, andernfalls \emph{orientierungsumkehrend}.
+\end{defn}
+\begin{defn}
+Zwei Kurven $\gamma \in C^0(I,E)$ und $\gamma^*\in C^0(I^*,E)$ heißen
+\emph{topologisch äquivalent} geschrieben $\gamma\sim\gamma^*$, falls eine
+orientierungstreue Parametertransformation $\ph$ existiert, sodass
+\begin{align*}
+\gamma = \eta\circ\ph.
+\end{align*}
+\end{defn}
+\begin{defn}
+Ein \emph{stetiger Weg} $\omega$ in $E$ ist eine Klasse topologisch äquivalenter
+Kurven
+\begin{align*}
+\omega = [\gamma] = \setdef{\eta\in C^0(I,E)}{\gamma\sim\eta}.
+\end{align*}
+Jedes Element $\eta\in\omega$ heißt \emph{Parametrisierung} des Weges.
+\end{defn}
+\begin{defn}
+Ein Weg $\omega = [\gamma]$ heißt \emph{einfach}, falls $\gamma$ einfach,
+\emph{geschlossen}, falls $\gamma$ geschlossen und \emph{Jordanweg}, falls
+$\gamma$ Jordankurve ist. Der \emph{Anfangs-} und \emph{Endpunkt} von $\omega$
+ist der Anfangs- und Endpunkt von $\gamma$ und die \emph{Spur} von $\omega$ ist
+die Spur von $\gamma$.
+\end{defn}
+\begin{defn}
+Ein Weg heißt \emph{rektifizierbar}, falls er eine rektifizierbare
+Parametrisierung besitzt. Seine Länge ist in diesem Fall die einer beliebigen
+Parametrisierung.
+\end{defn}
+\begin{defn}
+Ein Weg heißt \emph{glatt}, falls er eine reguläre Parametrisierung besitzt.
+\end{defn}
+
+\subsection{Sätze für Kurven in Banachräumen}
+\begin{prop}
+Für eine in $t_0\in I$ differenzierbare Kurve $\gamma: I\to E$ ist äquivalent
+\begin{enumerate}
+  \item Es gibt eine in $t_0$ stetige Abbildung $\ph: I\to E$ mit $\ph(t_0) =
+  v$, sodass
+  \begin{align*}
+  \gamma(t) = \gamma(t_0) + \ph(t)(t-t_0).
+  \end{align*}
+  \item Es gilt
+  \begin{align*}
+  \lim\limits_{h\to0} h^{-1}(\gamma(t_0+h)-\gamma(t_0)) = v.
+  \end{align*}
+  \item Es gilt
+  \begin{align*}
+  \lim\limits_{t\to t_0}
+  \frac{\abs{\gamma(t)-\gamma(t_0)-v(t-t_0)}}{\abs{t-t_0}} = 0.
+  \end{align*}
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Sei $\gamma\in C^0(I,E)$ und $t_0\in I$, dann wird durch
+\begin{align*}
+\Phi(t) = \int_{t_0}^t \gamma(t)\dt,
+\end{align*}
+eine stetig differenzierbare Funktion definiert mit
+$\dot{\Phi}=\gamma$.
+\end{prop}
+\begin{prop}[Haupsatz der Differential und Integralrechnung]
+Sei $\gamma\in C^0(I,E)$ und $\Gamma$ eine beliebige Stammfunktion auf
+$[a,b]\subset I$, dann gilt
+\begin{align*}
+\Gamma(b) - \Gamma(a) = \int_a^b\gamma(t)\dt.
+\end{align*}
+Außerdem gilt für jede Kurve $\gamma\in C^1(I,E)$, dass $\gamma(b)-\gamma(a) =
+\int_a^b\dot{\gamma}(t)\dt$ ist.
+\end{prop}
+\begin{prop}
+Jede Kurve $\gamma\in C^1(I,E)$ ist lipschitz mit $L$-Konstante $M =
+\max\limits_{t\in I} \norm{\dot{\gamma}(t)}_E$.
+\end{prop}
+\begin{prop}
+Ist $\gamma\in C^0(I,E)$ lipschitz mit $L$-Konstante $M$, dann ist
+$\gamma$ rektifizierbar und es gilt
+\begin{align*}
+L_I(\gamma) \le M\abs{I}.
+\end{align*}
+Insbesondere ist jede $C^1$ Kurve rektifizierbar.
+\end{prop}
+\begin{prop}
+Die Längenfunktion ist additiv $L_{[a,c]}+L_{[c,b]} = L_{[a,b]}$.
+\end{prop}
+\begin{prop}
+Ist $\gamma\in C^1(I,E)$, so ist die Längenfunktion stetig differenzierbar und
+es gilt $\lambda'(t) = \norm{\dot{\gamma}(t)}_E$, sowie
+\begin{align*}
+\lambda(t) = \int_a^t \norm{\dot{\gamma}(t)}_E\dt.
+\end{align*}
+\end{prop}
+\begin{prop}
+Die euklidische Länge einer Kurve ist
+\begin{align*}
+L_I(\gamma) = \int_I
+\sqrt{\dot{\gamma}_1^2(t)+\ldots+\dot{\gamma}_n^2(t)}\dt.
+\end{align*}
+\end{prop}
+\begin{prop}
+Seien $\gamma$ und $\gamma^*$ topologisch äquivalent. Ist $\gamma$
+rektifizierbar, so auch $\gamma^*$ und die Längen sind gleich.
+\end{prop}
+\begin{prop}
+Jeder glatte Weg besitzt eine Parametrisierung nach der Bogenlänge 
+\begin{align*}
+\eta: [0,l]\to E
+\end{align*}
+derart, dass $\norm{\dot{\eta}(t)}_E = 1$ für alle $t\in[0,l]$ mit $l =
+L(\omega)$.
+\end{prop}
+\begin{prop}
+Jede stückweise $C^1$ Kurve ist rektifizierbar und es gilt
+\begin{align*}
+L_I(\gamma) = \int_I \norm{\dot{\gamma}(t)}\dt.
+\end{align*}
+\end{prop}
+
+\subsection{Sätze für Kurven im $\R^n$}
+
+\begin{prop}[Jordanscher Kurvensatz]
+Ist $\gamma: I\to\R^2$ geschlossenen und doppelpunktfrei, so besteht das
+Komplement von $\Gamma = \gamma(I)$ genau aus zwei disjunkten,
+zusammenhängenden Mengen $\Omega_i$ und $\Omega_o$, genannt das Innere und
+das Äußere. Außerdem ist $\Omega_i$ beschränkt und $\Gamma$ bildet den Rand von
+$\Omega_i$ und $\Omega_o$.
+\end{prop}
+\begin{prop}[Satz von Peano]
+Es gibt stetige Abbildungen $\gamma: [0,1]\to[0,1]^2$, die surjektiv
+sind.
+\end{prop}
+\begin{prop}
+Eine Kurve $\gamma: I \to \R^n$ ist differenzierbar genau dann, wenn jede
+Komponentenfunktion differenzierbar ist und es gilt
+\begin{align*}
+\dot{\gamma}(t) = (\dot{\gamma_1}(t),\ldots,\dot{\gamma_n}(t)).
+\end{align*}
+\end{prop}
+\begin{prop}
+Eine Kurve ist von der Klasse $C^r$, wenn jede Komponentenfunktion $C^r$
+ist.
+\end{prop}
+\begin{prop}
+Ist $\gamma: I\to\R^2$ eine reguläre $C^r$ Kurve, so ist die Spur von $\gamma$
+lokal um jeden Punkt der Graph einer $C^r$ Funktion.
+\end{prop}

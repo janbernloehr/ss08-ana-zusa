@@ -1,0 +1,107 @@
+% ANA-Zusammenfassung
+\documentclass[paper=landscape,paper=a4,parskip=half,twocolumn,twoside=false,fleqn,DIV=calc]{scrartcl}
+% Koma gefällt mir einfach besser
+
+% Gemeinsames Mathe Zeug \ldots
+\usepackage{janmcommon}
+\usepackage{scrtime}
+
+\newcounter{aufgabe}
+
+{\catcode`\!=8 % funny catcode so ! will be a delimiter 
+\catcode`\Q=3 % funny catcode so Q will be a delimiter 
+\long\gdef\given#1{88\fi\Ifbl@nk#1QQQ\empty!} 
+\long\gdef\blank#1{88\fi\Ifbl@nk#1QQ..!}% if null or spaces 
+\long\gdef\nil#1{\IfN@Ught#1* {#1}!}% if null 
+\long\gdef\IfN@Ught#1 #2!{\blank{#2}} 
+\long\gdef\Ifbl@nk#1#2Q#3!{\ifx#3}% same as above 
+}
+
+\newenvironment{prop}[1][]%
+{\textbf{\color{darkblue}%
+\if\blank{#1}\tiny $\blacksquare$\normalsize\else#1 \fi%
+%\tiny $\blacksquare$ \normalsize\;#1\;
+\;}\itshape}% {\par}
+
+\definecolor{purple}{rgb}{0.55,.16,0.44}
+
+\renewcommand{\emph}[1]{{\color{purple}#1}}
+%\renewcommand{\span}[1]{lala \left\{ #1 \right\}}
+\renewcommand{\sp}[1]{\operatorname{span}\left\{ #1 \right\}}
+
+%\text{\color{darkblue}$\rtimes$}\par}
+% 
+% \newenvironment{Lemma}[1]%
+% {{\bf\color{darkblue}$\filledsquare$ #1\;}\it}%
+% {\hfill\mbox{\color{darkblue}$\rtimes$}\par}
+
+\newcommand{\fishhere}{\quad\text{\color{darkblue}$\rtimes$}}
+
+\newenvironment{defn}%
+{{\bf\color{darkblue}\tiny $\blacksquare$\normalsize \;}\itshape}%
+{\par}
+%{\hfill\mbox{\color{darkblue}$\rtimes$}\par}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+
+%\setsansfont[Mapping=tex-text]{Minion Pro}
+
+% außerdem fehlt mir bei den Formeln die vorangestellte Kapitelnummer
+%\renewcommand{\theequation}{\theaufgabe.\arabic{equation}}
+\numberwithin{equation}{aufgabe}
+
+% jetzt noch die Kapitel definieren
+\renewcommand\thesection{\arabic{section}}
+\renewcommand{\labelenumi}{{\normalfont(\alph{enumi})}}
+
+\setkomafont{section}{%
+\normalfont\bfseries\Large\color{darkblue}}
+
+\setkomafont{subsection}{%
+\normalfont\bfseries\scshape}
+
+\setcounter{aufgabe}{117}
+
+\begin{document}
+
+% den Titel einfügen
+\begin{center}
+{\huge\bf ANA I/II - Zusammenfassung}
+
+Jan-Cornelius Molnar, Version: \today\ \thistime
+
+Professor Pöschel ist für den Inhalt dieses Dokuments nicht
+verantwortlich.
+\end{center}
+
+% und los gehts!
+
+\input{01Mengen.tex}
+
+\input{02Folgen.tex}
+
+\input{03Reihen.tex}
+
+\input{04Stetigkeit.tex}
+
+\input{05Integration.tex}
+
+\input{06Differentiation.tex}
+
+\input{07Differentialgleichungen.tex}
+
+\input{08KurvenWege.tex}
+
+\input{09MehrDimDiff.tex}
+
+\input{10Matritzen.tex}
+
+\input{11MehrDimAna.tex}
+
+\input{12UmkehrAbbImplizit.tex}
+
+\input{13Mannigfaltigkeiten.tex}
+
+\end{document}

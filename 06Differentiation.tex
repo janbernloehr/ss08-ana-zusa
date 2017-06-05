@@ -1,0 +1,235 @@
+\section{Differentiation}
+
+\begin{defn}
+Eine Funktion $f: I \to \R$ heißt \emph{differenzierbar im Punkt $a\in I$}, wenn
+es eine in $a$ stetige Funktion $r$ gibt mit $r(a)=0$, so dass
+\begin{align*}
+f(t) = f(a) + m(t-a) + r(t)(t-a), t\in I.
+\end{align*}
+Dann heißt $m$ die \emph{erste Ableitung} von $f$ im Punkt $a$ und wird mit
+$f'(a)$ bezeichnet.
+\end{defn}
+\begin{defn}
+Eine Funktion $f: I\to \R$ heißt \emph{differenzierbar auf $I$}, wenn sie in
+jedem Punkt aus $I$ differenzierbar ist. In diesem Fall heißt die Funktion
+\begin{align*}
+f': I\to \R,\quad t\mapsto f'(t)
+\end{align*}
+die Ableitung von $f$.
+
+Ist $f'$ außerdem stetig, so heißt $f$ \emph{stetig differenzierbar} auf
+$I$.
+\end{defn}
+\begin{defn} Eine Funktion $f: I\to \R$ besitzt an der Stelle 
+$a\in I$ ein \emph{lokales Maximum}, wenn eine Umgebung $U_\delta(a)$ existiert,
+sodass
+\begin{align*}
+f(x) \le f(a), \forall x\in I\cap U_\delta(a).
+\end{align*}
+Gilt sogar $f(x) < f(a)$ in $I\cap\dot{U}_\delta(a)$, so heißt das Maximum
+\emph{strikt}.
+\end{defn}
+\begin{defn}
+Ist $f: I\to\R$ in $c$ differenzierbar und $f'(c) = 0$, so heißt $c$
+\emph{stationärer} oder \emph{kritischer Punkt} von $f$.
+\end{defn}
+\begin{defn}
+Die Klasse der $r$-mal stetig differenzierbaren Funktionen $f: D\to F$ wird mit
+\emph{$C^{r}(D,F)$} bezeichnet.
+\end{defn}
+\begin{defn}
+Ist $f: I\to\R$, dann heißt $F$ eine \emph{Stammfunktion} von $f$, falls $F' =
+f$.
+\end{defn}
+\begin{defn}
+Das \emph{unbestimmte Integral} einer stetigen Funktion $f$ ist die
+Parallelschar
+\begin{align*}
+\int f = \setdef{F + c}{c\in\R},
+\end{align*}
+aller Stammfunktionen von $f$ auf einem Intervall.
+\end{defn}
+\begin{defn}
+Ist $f$ $n$-mal stetig differenzierbar auf $I$ und $a\in I$, so heißt
+\begin{align*}
+T_a^n f(t) = \sum\limits_{i=0}^{n}\frac{f^{(i)}(a)}{i!}(t-a)^i,
+\end{align*}
+das $n$-te \emph{Taylorpolynom} an der Stelle a.
+\end{defn}
+\begin{defn}
+Für $f\in C^\infty(I)$ und $a\in I$, heißt
+\begin{align*}
+T_a f(t) = \sum\limits_{i=0}^\infty \frac{f^{(i)}}{i!}(t-a)^i,
+\end{align*}
+die \emph{Taylorreihe} von $f$. Konvergiert diese Reihe in einer Umgebung um $a$
+und gilt $T_a f(t) = f(t)$, dann heißt $f$ um $a$ \emph{in seine Taylorreihe
+entwickelbar}.
+\end{defn}
+
+\subsection{Beispiele für differenzierbare Funktionen}
+
+\begin{enumerate}
+  \item Die Identitätsfunktion, sowie konstante und affine Funktionen, reell
+ e Polynome, $\sin,\cos$ und die Exponentialfunktion sind von der Klasse
+ $C^\infty(\R)$.
+  \item Die Betragsfunktion ist für jedes $t\neq 0$ stetig differenzierbar, aber
+  in $t=0$ nicht differenzierbar, denn es gilt
+  \begin{align*}
+  \frac{\abs{t}-\abs{0}}{t-0} = \begin{cases}1,& t > 0,\\-1, & t < 0.\end{cases}
+  \end{align*}
+  \item Die Wurzelfunktion $\sqrt{t}$ ist für jedes $t > 0$
+  stetig differenzierbar, aber in $t=0$ nicht differenzierbar.
+  \item Die Funktion $f(t) = t^2\sin(\frac{1}{t})$ ist differenzierbar, aber in
+  $t=0$ nicht stetig differenzierbar.
+\end{enumerate}
+
+\subsection{Sätze für Funktionen $f: I\to\R$}
+
+\begin{prop}
+Ist $f$ im Punkt $a$ differenzierbar, so ist $f$ im Punkt $a$ stetig und es gilt
+\begin{align*}
+\lim \limits_{t\to a} \frac{f(t)-f(a)}{t-a} =
+\lim \limits_{h\to 0} \frac{f(a+h)-f(a)}{h} = f'(a).
+\end{align*}
+\end{prop}
+\begin{prop}
+Der Raum der differenzierbaren Funktionen ist eine Algebra und für
+in $a$ differenzierbare Funktionen $f,g: I\to\R$ gilt  
+\begin{align*}
+& (f+g)'(a) = f'(a)+g'(a)\\
+& (fg)'(a) = f'(a)g(a) + f(a)g'(a).
+\end{align*}
+Ist $J\subset \R$ und $g: I\to J$ in $a$ differenzierbar und $f: J\to\R$ in
+$g(a)$, dann gilt außerdem
+\begin{align*}
+& (f\circ g)'(a) = g'(a)f(g(a)). 
+\end{align*}
+\end{prop}
+\begin{prop}
+Der Raum $C^r$ ist eine Algebra. Sind $f,g$ von der Klasse $C^r$ und $f$ im
+Wertebereich von $g$ definiert, dann ist auch $f\circ g$ von der Klasse $C^r$.  
+\end{prop}
+\begin{prop}[Ableitung der Umkehrfunktion]
+Ist $f: I \to J$ stetig, bijektiv, in $a$ differenzierbar und $f'(a) \neq 0$,
+so ist $g = f^{-1} : J\to I$ ebenfalls stetig und in $b = f(a)$
+differenzierbar und es gilt
+\begin{align*}
+g'(b) = \frac{1}{f'(g(b))}.
+\end{align*}
+Ist $f$ außerdem $C^r$ und verschwindet $f'$ nirgends auf $I$, so ist auch
+$f^{-1}$ $C^r$.
+\end{prop}
+\begin{prop}[Satz von Fermat]
+Besitzt $f: I\to\R$ in $c\in I^\circ$ ein Extremum, so gilt
+$f'(c) = 0$.
+\end{prop}
+\begin{prop}[Satz von Rolle]
+Ist $f: [a,b]\to\R$ stetig, auf $(a,b)$ differenzierbar und gilt $f(a) = f(b)$,
+so besitzt $f$ einen kritischen Punkt in $(a,b)$.
+\end{prop}
+\begin{prop}[Mittelwertsatz]
+Ist $f: [a,b]\to\R$ stetig und auf $(a,b)$ differenzierbar, dann existiert ein
+$c\in(a,b)$, sodass
+\begin{align*}
+f'(c) = \frac{f(b)-f(a)}{b-a}.
+\end{align*}
+\end{prop}
+\begin{prop}[Monotoniesatz]
+Ist $f: [a,b]\to\R$ stetig und auf $(a,b)$ differenzierbar, dann gilt
+\begin{enumerate}
+  \item $f$ ist konstant auf $[a,b]$ genau dann, wenn $f' \equiv 0$.
+  \item $f$ ist monoton steigend auf $[a,b]$ genau dann, wenn $f' \ge 0$.
+  \item $f$ ist streng monoton steigend, wenn $f' > 0$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Sei $f$ in einem offenen Intervall $I$ differenzierbar und besitzte in $c\in I$
+einen kritischen Punkt. Ist dann $f'$ in einer Umgebung um $c$ monoton fallen
+bzw. steigend, besitzt $f$ in $c$ ein Maximum bzw. Minimum. 
+\end{prop}
+\begin{prop}
+Die Stammfunktionen einer Funktion $f$ auf einem Intervall unterscheiden sich
+nur durch eine additive Konstante.
+\end{prop}
+\begin{prop}
+Sei $f$ auf $I$ integrierbar und $t_0\in I$, dann wird durch
+\begin{align*}
+\Phi(t) = \int_{t_0}^t f(x)\dx,
+\end{align*}
+eine Funktion mit den Eigenschaften definiert.
+\begin{enumerate}
+  \item $\Phi$ ist lipschitz auf $I$ mit $L$-Konstante $\norm{f}_I$.
+  \item Ist $f$ in $a$ stetig, dann ist $\Phi$ in $a$ differenzierbar und es
+  gilt $\Phi'(a) = f(a)$.
+  \item Ist $f$ stetig, so ist $\Phi$ stetig differenzierbare Stammfunktion
+  $f$.
+\end{enumerate}
+\end{prop}
+\begin{prop}[Haupsatz der Differential und Integralrechnung]
+Ist $f$ auf $[a,b]$ stetig und $F$ irgendeine Stammfunktion von $f$, dann gilt
+\begin{align*}
+F(b) - F(a) = \int_a^b f(x)\dx.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f$ auf $[a,b]$ stetig differenzierbar, so gilt
+\begin{align*}
+\int_a^bf' = f\big|_a^b = f(b)-f(a).
+\end{align*}
+\end{prop}
+\begin{prop}[Partielle Integrationsregel]
+Sind $f,g$ auf $I$ stetig differenzierbar, so gilt
+\begin{align*}
+\int_a^b f'(x)g(x)\dx = f(x)g(x)\big|_a^b - \int_a^b
+f(x)g'(x)\dx.
+\end{align*}
+\end{prop}
+\begin{prop}[Substitutionsregel]
+Ist $\ph$ stetig differenzierbar auf $I = [a,b]$ und $f$ stetig, so ist
+\begin{align*}
+\int_a^b f(\ph(t))\ph'(t)\dt = \int_{\ph(a)}^{\ph(b)}
+f(s)\ds.
+\end{align*}
+\end{prop}
+\begin{prop}[Restgliedformel nach Lagrange]
+Ist $f\in C^{n+1}(I)$ und sind $t,a\in I$, dann existiert ein
+$\xi\in(a,t)$, so dass gilt
+\begin{align*}
+R_a^nf(t) = \frac{(t-a)^{n+1}}{(n+1)!}f^{(n+1)}(\xi).
+\end{align*}
+\end{prop}
+\begin{prop}[Restglied in Integralform]
+Ist $f\in C^{n+1}(I)$ und $t,a\in I$, dann gilt 
+\begin{align*}
+R_a^nf(t) = \frac{1}{n!}\int_a^t(t-s)^nf^{(n+1)}(s)\ds.
+\end{align*}
+\end{prop}
+\begin{prop}[Variante der Integralformel]
+Ist $f\in C^{n+1}(I)$ und sind $a,a+h\in I$, dann gilt 
+\begin{align*}
+R_a^nf(a+h) = \frac{h^{n+1}}{n!}\int_0^1(1-s)^nf^{(n+1)}(a+sh)\ds.
+\end{align*}
+\end{prop}
+\begin{prop}
+Es gilt $T_af(t) = f(t)$ genau dann, wenn
+$\lim\limits_{n\to\infty}R_a^nf(t)=0$.
+\end{prop}
+\begin{prop}[Regel von l'Hopital]
+Seien $f,g\in C^1(I)$ und $x_0$ sei eigentlicher oder uneigentlicher Randpunkt
+des (punktierten) Intervalls $I$. Darüber hinaus sei
+\begin{align*}
+\lim\limits_{x\to x_0} f(x) = \lim\limits_{x\to x_0} g(x) = 0, 
+\end{align*}
+oder
+\begin{align*}
+\lim\limits_{x\to x_0} f(x) = \lim\limits_{x\to x_0} g(x) = \infty, 
+\end{align*}
+sowie $g'(x)\neq 0$, für $x\in I$. Existiert dann
+$\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}$ als eigentlicher oder
+uneigentlicher Grenzwert, so existiert auch $\lim\limits_{x\to
+x_0}\frac{f(x)}{g(x)}$ und es gilt
+\begin{align*}
+\lim\limits_{x\to x_0}\frac{f(x)}{g(x)} = \lim\limits_{x\to
+x_0}\frac{f'(x)}{g'(x)}.
+\end{align*}
+\end{prop}

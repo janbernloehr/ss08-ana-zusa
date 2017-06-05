@@ -1,0 +1,240 @@
+\section{Mehrdimensionale Analysis}
+
+\begin{defn}
+Für eine Funktion $f\in C^2(\R^n,\R)$ heißt
+\begin{align*}
+Hf(a) = \left(f_{x_kx_l}(a)\right)_{1\le k,l\le n},
+\end{align*}
+die \emph{Hessematrix} von $f$ an der Stelle $a$.
+\end{defn}
+\begin{defn}
+Eine Funktion $f: V\hookrightarrow \R$ besitzt im Punkt $a$ ein \emph{lokales
+Minimum}, falls ein $\delta > 0$ existiert, sodass
+\begin{align*}
+f(a) \le f(x), \forall x\in B_\delta(a).
+\end{align*}
+Das Minimum heißt \emph{strikt}, falls gilt
+\begin{align*}
+f(a) < f(x), \forall x\in \dot{B}_\delta(a).
+\end{align*}
+Analog sind \emph{lokales} und \emph{striktes Maximum} definiert.
+\end{defn}
+\begin{defn}
+Ein kritischer Punkt $a$ einer $C^2$-Funktion $f: \R^n\hookrightarrow\R$
+heißt \emph{nichtentartet} bzw. \emph{nichtdegeneriert}, falls $\det Hf(a) \neq
+0$. Andernfalls \emph{entartet} bzw. \emph{degeneriert}.
+\end{defn}
+\begin{defn}
+Ein nichtentarteter kritischer Punkt $a$ einer $C^2$-Funktion $f$ heißt
+\emph{Sattelpunkt}, falls die Hessische $Hf(a)$ indefinit ist.
+\end{defn}
+\begin{defn}
+Sei $f\in C^2(\R^n,\R)$ mit kritischem Punkt $a$. Dann ist der \emph{Index} von
+$f$ in $a$ definiert als 
+\begin{align*}
+\ind(a) := \card(Hf(a)\cap (0,\infty)).
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Funktion $f\in C^2(\R^n,\R)$ heißt \emph{harmonisch}, falls
+\begin{align*}
+\Delta f = \sum\limits_{i,j=1}^n f_{x_ix_j} = 0.
+\end{align*}
+\end{defn}
+\begin{defn}
+Sei $K$ konvex und $f: K\to\R$. Dann heißt $f$ \emph{konvex}, falls
+\begin{align*}
+f((1-t)u+tv) \le (1-t)f(u) + tf(v),
+\end{align*}
+für alle $u,v\in K$ und $t\in[0,1]$.\\
+$f$ heißt \emph{strikt konvex}, wenn die strikte Ungleichung für $u\neq v\in
+K$ und $t\in(0,1)$ gilt.
+\end{defn}
+
+\subsection{Beispiele}
+
+\begin{enumerate}
+  \item Der definite Fall
+  
+  Die Abbildung $f(x,y) = x^2+y^2$ mit $Hf(x,y) = \begin{pmatrix}2
+  & 0 \\ 0 & 2\end{pmatrix}$ hat in $0$ ein striktes Minimum.
+
+  \item Der semidefinite Fall
+  
+  Die Abbildungen $f(x,y) = x^2+y^4,\quad g(x,y) = x^2,\quad h(x,y) = x^2+y^3$
+  haben in $0$ einen kritischen Punkt mit semidefiniter Hessischen.
+  
+  $f$ hat ein striktes Minimum, $g$ ein nichtisoliertes Minimum und $h$ hat
+  kein Minimum.
+  
+  \item Der nicht degenerierte Fall
+  
+  Die Abbildung $f(x,y) = x^2-y^2$ hat in $0$ einen nicht degenerierten
+  kritischen Punkt. Die Hessische ist dort, also liegt ein
+  Sattelpunkt vor.
+\end{enumerate}
+
+\subsection{Sätze für Abbildungen $f: V\hookrightarrow W$}
+\begin{prop}[Satz von Taylor]
+Sei $\Omega$ offen und $f\in C^{r+1}(\Omega,W)$. Ist $[a,a+h]\subset\Omega$, so
+gilt
+\begin{align*}
+f(a+h) = T_a^rf(h) + R_a^rf(h), 
+\end{align*}
+mit dem $r$-ten Taylorpolynom
+\begin{align*}
+T_a^rf(h) = \sum\limits_{i=1}^r \frac{1}{i!}D_h^if(a), 
+\end{align*}
+und dem zugehörigen Restglied
+\begin{align*}
+R_a^rf(h) = \frac{1}{r!}\int_0^1 (1-t)^r D_h^{r+1}f(a+th)\dt.
+\end{align*}
+\end{prop}
+
+\subsection{Sätze für den Standardfall $f: \R^n\to\R^m$}
+\begin{prop}[Satz von Taylor II]
+Sei $\Omega\subset\R^n$ offen, $f\in C^{r+1}(\Omega,\R^m)$. Ist
+$[a,a+h]\subset\Omega$, so gilt
+\begin{align*}
+f(a+h) = T_a^rf(h) + R_a^rf(h), 
+\end{align*}
+mit dem $r$-ten Taylorpolynom
+\begin{align*}
+T_a^rf(h) = \sum\limits_{\abs{\alpha}\le r} \frac{1}{\alpha!}D^\alpha
+f(a)h^\alpha,
+\end{align*}
+und dem zugehörigen Restglied
+\begin{align*}
+R_a^rf(h) = \sum\limits_{\abs{\alpha}=r+1}\frac{\abs{\alpha}}{\alpha!} h^\alpha
+\int_0^1 (1-t)^r D^\alpha f(a+th)\dt.
+\end{align*}
+\end{prop}
+
+\subsection{Sätze für Funktionen $f: V\hookrightarrow \R$}
+\begin{prop}
+Ist $f: \Omega\to\R$, dann gilt
+\begin{align*}
+R_a^rf(h) = \frac{1}{(r+1)!}D_h^{r+1}f(\xi),
+\end{align*}
+für ein $\xi\in[a,a+h]$.
+\end{prop}
+\begin{prop}[Spezialfall]
+Ist $f\in C^2(\Omega,\R)$ und $[a,a+h]\subset\Omega$, dann gilt
+\begin{align*}
+f(a+h) = f(a) + \sum\limits_{i=1}^n f_{x_i}(a)h_i +
+\frac{1}{2}\sum\limits_{i,j=1}^n f_{x_ix_j}(\xi)h_ih_j,
+\end{align*}
+für ein $\xi\in[a,a+h]$.
+\end{prop}
+\begin{prop}
+Für eine Funktion $f\in C^2(\R^n,\R)$ gilt
+\begin{align*}
+D_h^2f(a) = \sum\limits_{i,j=1}^n f_{x_ix_j}(a)h_ih_j = \lin{Hf(a)h,h}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f\in C^{r+1}{\Omega}$ und
+\begin{align*}
+D^\alpha f = 0, \quad\abs{\alpha} = r+1,
+\end{align*}
+so ist $f$ ein Polynom vom Grad $\le r$.
+\end{prop}
+\begin{prop}[Satz von Fermat]
+Besitzt $f: V\hookrightarrow \R$ in $a$ ein lokales Extremum, so ist $\D f(a) =
+0$.
+\end{prop}
+\begin{prop}
+Ist $\Omega$ offen und besitzt $f: \Omega\to \R$ in $a$ ein lokales
+Extremum, so gilt
+\begin{align*}
+f(a+h) = f(a) + \frac{1}{2}\lin{Hf(\xi)h,h},
+\end{align*}
+für alle hinreichend kleinen $h$ und ein $\xi\in[a,a+h]$.
+\end{prop}
+\begin{prop}
+Sei $f\in C^2(\Omega)$ und $a\in\Omega$ eine Minimalstelle, dann gilt
+\begin{align*}
+Hf(a) \ge 0.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sei $f\in C^2(\Omega)$ und $a\in\Omega$ ein kritischer Punkt von $f$. Existiert
+eine Umgebung $U$ von $a$ derart, dass
+\begin{align*}
+Hf(x) \ge 0, x\in U,
+\end{align*}
+dann hat $f$ an der Stelle $a$ ein lokales Minimum. Gilt sogar
+\begin{align*}
+Hf(a) > 0,
+\end{align*}
+so liegt ein striktes Minimum vor.   
+\end{prop}
+\begin{prop}
+Eine Funktion $f\in C^2(\R^n,\R)$ ist lokal in einem nichtentarteten kritischen
+Punkt $a$ bereits vollständig durch $\ind(a)$ charakterisiert.
+\begin{align*}
+&\ind(a) = 0 \Leftrightarrow Hf(a) < 0,\\
+&\ind(a) = n \Leftrightarrow Hf(a) > 0,\\
+&0 < \ind(a) < n \Leftrightarrow Hf(a) \lessgtr 0.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sei $f\in C^2(\R^n,\R)$ und $a$ ein nichtdegenerierter kritischer Punkt von $f$,
+dann ist $a$ isoliert.
+\end{prop}
+\begin{prop}[Lemma von Morse]
+Sei $f\in C^3(\R^n,\R)$ und $a$ ein nichtentarteter kritischer Punkt. Dann
+können um $a$ neue Koordinaten $u = (u_1,\ldots,u_n)$ eingeführt werden, sodass
+\begin{align*}
+f(u) = f(a) + \sum\limits_{i=1}^k u_i^2 - \sum\limits_{j=k}^n u_j^2,
+\end{align*}
+wobei $k = \ind(a)$.
+\end{prop}
+\begin{prop}
+Im $\R^n$ gibt es genau $n+1$ verschiedene nichtentartete kritische Punkte.
+Strikte Minimalstellen, strikte Maximalstellen und $n-1$ Sattelpunkte mit $k =
+1, \ldots, n-1$.
+\end{prop}
+\begin{prop}[Maximumsprinzip harmonischer Funktionen]
+Sei $\Omega$ ein beschränktes Gebiet und sei $f\in C^0(\bar{\Omega})\cap
+C^2(\Omega)$ harmonisch, dann gilt
+\begin{enumerate}
+  \item $\abs{f}$ nimmt ihr Maximum auf dem Rand an $\max\limits_{\bar{\Omega}}
+  \abs{f} = \max\limits_{\partial\Omega} \abs{f}$.
+  \item Ist $f$ auf dem Rand von $\Omega$ konstant, so ist $f$ auf
+  $\bar{\Omega}$ konstant.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Sei $K$ eine konvexe Teilmenge des Vektorraums $V$ und $f: K\to\R$, dann ist $f$
+konvex genau dann, wenn ihr Epigraph
+\begin{align*}
+\Epi(f) := \setdef{(u,z)\subset V\times\R}{u\in K, z \ge f(u)},
+\end{align*}
+konvex ist.
+\end{prop}
+\begin{prop}
+Sei $\Omega\subset V$ offen und konvex und $f: \Omega\to \R$ konvex, dann ist
+$f$ stetig und auf jeder kompakten Teilmenge von $\Omega$ sogar lipschitz.
+\end{prop}
+\begin{prop}
+Sei $\Omega\subset V$ offen und konvex und $f\in C^1(\Omega)$, dann ist $f$
+konvex genau dann, wenn
+\begin{align*}
+f(x+h) - f(x) \ge \lin{\nabla f(x),h},
+\end{align*}
+für alle $x,x+h\in\Omega$ und strikt konvex genau dann, wenn die strikte
+Ungleichung für $h\neq 0$ gilt.
+\end{prop}
+\begin{prop}
+Sei $\Omega\subset V$ offen und konvex und $f\in C^2(\Omega)$, dann ist $f$
+konvex genau dann, wenn
+\begin{align*}
+Hf(x) \ge 0
+\end{align*}
+für alle $x\in\Omega$. $f$ ist strikt konvex, falls $Hf(x) > 0$.
+\end{prop}
+\begin{prop}
+Ist $f\in C^1(\R^n,\R)$ strikt konvex und koerziv, dann besitzt $f$ genau eine
+Minimalstelle $x_0$ und es gilt $\min\limits_{x\in\R^n} f(x) = f(x_0)$.
+\end{prop}

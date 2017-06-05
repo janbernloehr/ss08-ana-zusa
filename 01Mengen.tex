@@ -1,0 +1,194 @@
+\section{Mengen}
+
+Im Folgenden sei $A$ immer eine Teilmenge eines normierten Raumes.
+
+\begin{defn}
+Eine Menge $A$ heißt beschränkt, falls
+\begin{align*}
+\sup\limits_{a\in A} \norm{a} < \infty.
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt induktiv, falls
+\begin{align*}
+1\in A \text{ und } a \in A \Rightarrow a+1\in A.  
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt \emph{offen}, wenn $A$ mit $a$ auch eine Umgebung von $a$
+enthält.
+\begin{align*}
+\forall a\in A \exists \delta > 0 : B_\delta(a) \subset A.
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt \emph{abgeschlossen}, wenn $A^c$
+offen ist.
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt \emph{kompakt}, wenn jede Folge in $A$ eine in $A$
+konvergente Teilfolge besitzt.
+\end{defn}
+\begin{defn}
+Ein Punkt $a$ nicht notwendiger Weise $\in A$ heißt \emph{Häufungspunkt} von
+$A$, wenn in jeder Umgebung von $a$ unendlich viele Punkte von $A$ liegen.
+\end{defn}
+\begin{defn}
+Die Menge $A'$ aller Häufungspunkte von $A$ heißt \emph{abgeleitete
+Menge}.
+\end{defn}
+\begin{defn}
+Die Menge $A^{-} = A \cup A'$ heißt \emph{Abschluss} von $A$.
+\end{defn}
+\begin{defn}
+Ein Punkt $a\in A$ heißt \emph{innerer Punkt} von $A$, wenn $A$ eine Umgebung
+von $a$ enthält.
+\end{defn}
+\begin{defn}
+Die Menge $A^\circ$ aller inneren Punkte von $A$ heißt \emph{offener Kern} von
+$A$.
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt \emph{zusammenhängend}, falls es zu je zwei Punkten in $A$
+eine ganz in $A$ liegende, differenzierbare Kurve gibt, die die zwei Punkte
+verbindet.
+\end{defn}
+\begin{defn}
+Eine Menge $\Omega$ heißt \emph{Gebiet}, wenn sie offen und zusammenhängend ist.
+\end{defn}
+\begin{defn}
+Für zwei Punkte $u,v$ bezeichnet
+\begin{align*}
+[u,v] = \setdef{(1-t)u+tv}{t\in[0,1]}
+\end{align*}
+die \emph{Verbindungsstrecke}.
+\end{defn}
+\begin{defn}
+Eine Menge $A$ heißt \emph{konvex}, falls für $u,v\in A$ auch $[u,v]\subset A$
+ist.
+\end{defn}
+\begin{defn}
+Seien $x_1, \ldots, x_n$ Punkte einer Menge, dann heißt die
+Linearkombination
+\begin{align*}
+\sum\limits_{i=1}^n \lambda_i x_i,
+\end{align*}
+eine \emph{Konvexkombination}, falls $\lambda_i \ge 0$ und $\sum\limits_{i=1}^n
+\lambda_i = 1$.
+\end{defn}
+
+\begin{defn}
+Eine \emph{Norm} auf einem Vektorraum $V$ ist eine Abbildung
+\begin{align*}
+\norm{\cdot}: V\to \R,
+\end{align*}
+mit den Eigenschaften
+\begin{enumerate}
+  \item $\norm{x} \ge 0$ für alle $x\in V$ und $\norm{x} = 0$, wenn $x = 0$.
+  \item $\norm{\lambda x} = \abs{\lambda}\norm{x}$ für alle $x\in
+  V,\lambda\in\K$.
+  \item $\norm{x + y} \le \norm{x} + \norm{y}$ für alle $x,y\in V$.
+\end{enumerate}
+\end{defn}
+\begin{defn}
+Ein \emph{Skalarprodukt} auf einem Vektorraum $V$ ist eine Abbildung
+\begin{align*}
+\lin{\cdot,\cdot}: V\times V\to \R,
+\end{align*}
+mit folgenden Eigenschaften für $x,y,z\in V$ und $\lambda,\mu\in\R$
+\begin{enumerate}
+  \item $\lin{x,x} \ge 0$,
+  \item $\lin{x,y} = \lin{y,x}$,
+  \item $\lin{\lambda x + \mu y,z} = \lambda\lin{x,z}+\mu\lin{y,z}$.
+\end{enumerate}
+\end{defn}
+
+\subsection{Beispiele für Normen}
+
+\begin{enumerate}
+  \item Summennorm eines Vektors
+  \begin{align*}
+  \norm{x}_1 = \sum\limits_{i=1}^n\abs{x_i}.
+  \end{align*}
+  \item $p$-Norm eines Vektors
+  \begin{align*}
+  \norm{x}_p = \sqrt[p]{\sum\limits_{i=1}^n\abs{x_i}^p}.
+  \end{align*}
+  \item Supremumsnorm einer stetigen Abbildung $f: K\to W$
+  \begin{align*}
+  \norm{f}_\infty = \sup\limits_{x\in K} \abs{f(x)}.
+  \end{align*}
+  \item Operatornorm eines linearen Operators $A: V\to W$
+  \begin{align*}
+  \norm{A} = \sup\limits_{x\in V\setminus \{0\}} \frac{\abs{Ax}_W}{\abs{x}_V} =
+  \sup\limits_{\abs{x}_V = 1} \abs{Ax}.
+  \end{align*}
+  \item $L_1$ Norm einer stetigen integrablen Abbildung $f$
+  \begin{align*}
+  \norm{f}_{L_1} = \int\limits_{-\infty}^\infty \abs{f(x)}\dx.
+  \end{align*}
+\end{enumerate}
+
+\subsection{Sätze in einem normierten Raum}
+
+\begin{prop}
+Ist $N$ eine induktive Teilmenge von $\N$, so gilt $N = \N$.
+\end{prop}
+\begin{prop}
+$\varnothing$ und $E$ sind offen und abgeschlossen.
+\end{prop}
+\begin{prop}
+Die Vereinigung beliebig vieler offener Mengen ist offen.
+\end{prop}
+\begin{prop}
+Der Durchschnitt endlich vieler offener Mengen ist offen.
+\end{prop}
+\begin{prop}
+Die Vereinigung endlich vieler abgeschlossener Mengen ist
+abgeschlossen.
+\end{prop}
+\begin{prop}
+Der Durchschnitt beliebig vieler abgeschlossener Mengen ist
+abgeschlossen.
+\end{prop}
+\begin{prop}
+Die Vereinigung endlich vieler kompakter Mengen ist
+kompakt.
+\end{prop}
+\begin{prop}
+$A$ ist abgeschlossen genau dann, wenn $A$ alle seine
+Häufungspunkte enthält, also genau dann, wenn $A=A^{-}$.
+\end{prop}
+\begin{prop}
+$A$ ist offen genau dann, wenn alle Punkte von $A$ innere Punkte sind, also
+genau dann, wenn $A=A^{\circ}$.
+\end{prop}
+\begin{prop}
+Jede abgeschlossene Teilmenge einer kompakten Menge ist kompakt.
+\end{prop}
+\begin{prop}
+Eine kompakte Menge ist abgeschlossen und
+beschränkt.
+\end{prop}
+\begin{prop}
+Eine Menge $K$ ist konvex genau dann, wenn sie mit den Punkten $x_1, \ldots, x_n
+\in K$ auch jede Konvexkombination dieser Punkte enthält. 
+\end{prop}
+\begin{prop}
+Auf endlichdimensionalen Vektorräumen sind alle Normen äquivalent.
+\end{prop}
+\begin{prop}[Bolzano Weierstraß]
+Eine Teilmenge des $\R,\C,\R^n$ ist kompakt genau dann, wenn sie abgeschlossen
+und beschränkt ist.
+\end{prop}
+\begin{prop}[Überdeckungslemma von Heine-Borell]
+Sei $K$ kompakt und $(I_\lambda)_{\lambda\in\Lambda}$ eine beliebige Familie
+offener Intervalle. Gilt 
+\begin{align*}
+\bigcup \limits_{\lambda\in\Lambda} I_\lambda \supset K,
+\end{align*}
+so existieren endlich viele Umgebungen $I_1, \ldots, I_m$, sodass
+\begin{align*}
+\bigcup \limits_{1\le i\le m} I_i \supset K.
+\end{align*}
+\end{prop}

@@ -1,0 +1,49 @@
+\section{Matritzen}
+
+\begin{defn}
+Eine Matrix $A\in S(n)$ heißt
+\begin{enumerate}
+  \item \emph{positiv definit}, geschrieben $A > 0$, falls $\lin{Av,v} > 0,
+  \forall v\neq 0$,
+  \item \emph{positiv semidefinit}, geschrieben $A \ge 0$, falls $\lin{Av,v} \ge
+  0, \forall v$,
+  \item \emph{negativ definit} $A < 0$, falls $-A > 0$,
+  \item \emph{negativ semidefinit} $A\le 0$, falls $-A \ge 0$,
+  \item sonst \emph{indefinit} $A \lessgtr 0$.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+Die Abbildung $\det: \R^{n\times n} \to \R, A\mapsto \det A$ ist stetig
+differenzierbar auf $\R^{n\times n}$.
+\end{prop}
+\begin{prop}
+Ist $A\in S(n)$, dann sind folgende Aussagen äquivalent
+\begin{enumerate}
+  \item $A$ ist positiv definit.
+  \item Es gibt ein $\lambda > 0$, sodass $\lin{Av,v} \ge \lambda\abs{v}^2$.
+  \item Es gibt ein $\lambda > 0$, sodass $A -\lambda E \ge 0$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Sei $A\in S(n)$ und $\lambda_1\le\ldots\le\lambda_n$ seien Eigenwerte, dann gilt
+\begin{enumerate}
+  \item $A > 0 \Leftrightarrow \lambda_1 > 0$ und $A \ge 0 \Leftrightarrow
+  \lambda_1 \ge 0$.
+  \item $A < 0 \Leftrightarrow \lambda_n < 0$ und $A \le 0 \Leftrightarrow
+  \lambda_n \le 0$.
+  \item $A \lessgtr 0 \Leftrightarrow \lambda_1\lambda_n < 0$. 
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Eine Matrix $A\in S(n)$ ist positiv definit genau dann, wenn alle ihre
+Haupt-Unterdeterminanten positiv sind. Sie ist positiv semidefinit genau dann,
+wenn diese nicht negativ sind.
+\end{prop}
+\begin{prop}
+Sei $M:\Omega\to S(n)$ eine steige matrixwertige Abbildung und $M(a) > 0$. Dann
+existiert eine Umgebung $U$ von $a$ derart, dass
+\begin{align*}
+M(x) > 0, \forall x\in U.
+\end{align*}
+\end{prop}

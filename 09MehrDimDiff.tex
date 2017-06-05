@@ -1,0 +1,204 @@
+\section{Mehrdimensionale Differentiation}
+
+\begin{defn}
+Eine Abbildung $f:V\hookrightarrow W$ heißt \emph{differenzierbar} in $a$, wenn
+es eine lineare Abbildung $L$ und eine in $a$ stetige Abbildung $r: \Omega \to \R^m$ 
+gibt, sodass gilt
+\begin{align*}
+f(a+h) = f(a) + Lh + r(a+h)\abs{h}.
+\end{align*}
+\end{defn}
+\begin{defn}
+Sei $f:V\hookrightarrow W$, $a$ aus dem Definitionsbereich und $v\in V$
+beliebig. Existiert die Ableitung
+\begin{align*}
+D_vf(a) = \frac{d}{dt} f(a+tv)\big|_{t=0},
+\end{align*}
+so heißt $D_vf(a)$ die \emph{Richtungsableitung} von $f$ an der Stelle $a$ in
+Richtung $v$.
+\end{defn}
+\begin{defn}
+Sei $f:\R^n\hookrightarrow W$, $a$ aus dem Definitionsbereich $1\le i\le n$.
+Existiert die Ableitung
+\begin{align*}
+D_if(a) = \frac{d}{dt} f(a+te_i)\big|_{t=0} = \frac{\partial}{\partial_{x_i}}
+f(a) = \partial_{x_i}f(a) = f_{x_i}(a),
+\end{align*}
+so nennt man $D_if(a)$ die \emph{partielle Ableitung} von $f$ nach $i$ im Punkt
+$a$.
+\end{defn}
+\begin{defn}
+Die \emph{Operatornorm} einer linearen Abbildung $L: V\to W$ ist definiert als
+\begin{align*}
+\norm{L} = \sup\limits_{v\neq0} \frac{\abs{Lv}_W}{\abs{v}_V} =
+\sup\limits_{\abs{v}=1} \abs{Lv}_W.
+\end{align*}
+\end{defn}
+\begin{defn}
+Sei $V$ ein Hilbertraum und $f: V\hookrightarrow W$ in $x$ differenzierbar.
+Dann ist der \emph{Gradient} der eindeutig bestimmte und mit $\nabla f(x)$
+bezeichnete Vektor, für den gilt $Df(x)h = \lin{\nabla f(x),h}$.
+\end{defn}
+\begin{defn}
+Ist $f: \R^n\hookrightarrow\R$ stetig differenzierbar, so heißt der Graph der
+Abbildung
+\begin{align*}
+T: \R^n\hookrightarrow\R,\quad z(x) = f(a)+\lin{\nabla f(a),x-a},
+\end{align*} die \emph{Tangentialebene} an den Graphen von $f$ im Punkt $a$.
+\end{defn}
+\begin{defn}
+Die $r$-te partielle Ableitung einer Abbildung $f: \R^n\hookrightarrow\R^m$,
+$D_{r}D_{r-1}\ldots D_1 f(x)$ ist rekursiv erklärt durch 
+$D_{r}D_{r-1}\ldots D_1 f(x) = D_{r}(D_{r-1}\ldots D_1 f(x))$.
+\end{defn}
+
+\subsection{Beispiele}
+\begin{enumerate}
+  \item Eine affine Abbildung $f: V\hookrightarrow W, x \mapsto Ax+b$ ist
+  überall differenzierbar und es gilt $Df(x) = A$.
+  \item Die Abbildung $g: V\hookrightarrow W, x \mapsto
+  \lin{Ax,x}+b$ ist überall differenzierbar und es gilt $Df(x) =
+  \lin{Ax,\cdot} + \lin{A^tx,\cdot}$, ist $A$ symmetrisch gilt sogar $Df(x) =
+  2Ax$.
+  \item Für $f(x,y) = \frac{1}{2}(x^2-y^2)$ ist $\nabla f(x,y) = (x,-y)^T$.
+  \item Für die Abbildung $f(x,y) = \frac{2xy}{x^2+y^2}$ existieren im 
+  Nullpunkt beide partiellen Ableitungen und es gilt $f(x,0) = f(0,y) = 0$, sie
+  ist jedoch nicht total differenzierbar. Sie ist in $0$ nicht einmal
+  stetig, denn
+  \begin{align*}
+  f(t\cos \ph,t\sin\ph) = \frac{2\cos\ph\sin\ph}{\cos^2 \ph + \sin^2\ph} =
+  2\sin\ph.
+  \end{align*}
+\end{enumerate}
+
+\subsection{Sätze für Funktionen $f: V \hookrightarrow W$}
+
+\begin{prop}
+Für eine Abbildung $f:\Omega \to W$ sind folgende Aussagen äquivalent
+\begin{enumerate}
+  \item $f$ ist differenzierbar in $a$ mit $Df(a) = L$.
+  \item $f(a+h) = f(a) + Lh + o(h)$. 
+  \item $\lim \abs{h}^{-1}\abs{f(a+h)-f(a)-Lh} = 0$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Ist $f$ in $a$ differenzierbar, so ist $f$ in $a$ stetig und $Df(a)$ ist
+eindeutig bestimmt.
+\end{prop}
+\begin{prop}
+Die Differentiation ist eine lineare Operation und $D$ ist ein linearer
+Operator.
+\end{prop}
+\begin{prop}[Kettenregel]
+Ist $f: U\hookrightarrow V$ in $a$ differenzierbar und $g:
+V\hookrightarrow W$ in $f(a)$, so ist auch $g\circ f: U\hookrightarrow W$ in
+$a$ differenzierbar und es gilt
+\begin{align*}
+D(g\circ f)(a) = Dg(f(a))Df(a).
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $\Omega$ wegzusammenhängend, dann ist eine Abbildung $f: \Omega\to W$
+konstant genau dann, wenn $Df(x) \equiv 0$ ist.
+\end{prop}
+\begin{prop}
+Ist $f: U\hookrightarrow W$ differenzierbar, so gilt
+\begin{align*}
+D_vf(a) = Df(a)v.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f: \R^n\hookrightarrow\R^m$ in $a$ differenzierbar, so existieren alle
+Richtungsableitungen von $f$ und die totale Ableitung ist durch die Jacobimatrix darstellbar
+\begin{align*}
+Df(a) = \begin{pmatrix}
+        \partial_{x_1}f_1(a) & \ldots & \partial_{x_n}f_1(a)\\
+        \vdots & \ddots & \vdots\\
+        \partial_{x_1}f_m(a) & \ldots & \partial_{x_n}f_m(a)
+        \end{pmatrix}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f:\R^n\hookrightarrow\R^m$ in $a$ differenzierbar, so ist
+\begin{align*}
+D_vf(a) = \sum\limits_{i=1}^n D_if(a)v_i = \sum\limits_{i=1}^n
+f_{x_i}(a)v_i.
+\end{align*}
+\end{prop}
+\begin{prop}
+Existieren sämtliche partiellen Ableitungen von $f: \Omega\to\R^m$ und sind
+diese auf $\Omega$ stetig, so ist $f$ auf $\Omega$ differenzierbar und die
+Ableitung ist stetig.
+\end{prop}
+\begin{prop}[Lemma von Hadamard]
+Ist $f \in C^1(\Omega,W)$ und $[u,v]\subset\Omega$, so gilt
+\begin{align*}
+f(v)-f(u) = L(v-u), \text{ mit } L = \int_{0}^1 Df((1-t)u
++tv)\dt.
+\end{align*}
+\end{prop}
+\begin{prop}[Schrankensatz]
+Ist $f \in C^1(\Omega,W)$ und $[u,v]\subset\Omega$, so gilt
+\begin{align*}
+\abs{f(v)-f(u)}_W \le \max\limits_{z\in[u,v]}\norm{Df(z)}\abs{v-u}_W.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f \in C^1(\Omega,W)$, so ist $f$ lokal lipschitz.
+\end{prop}
+\begin{prop}[Satz von H.A. Schwartz]
+Sei $\Omega$ offen, $f\in C^1(\Omega,\R^m)$, und $x,y$ seien zwei beliebige
+Koordinaten in $\Omega$. Existiert dann die zweite Abbleitung $f_{xy}$ und ist
+sie dort stetig, so existiert auch $f_{yx}$ und es gilt $f_{xy} = f_{yx}$.
+\end{prop}
+
+\subsection{Sätze für Funktionen $f: V\hookrightarrow\R$}
+\begin{prop}
+Im Standardfall ist der Gradient einer Abbildung $f: \R^n\hookrightarrow\R$
+der Spaltenvektor
+\begin{align*}
+\nabla f(x) = \begin{pmatrix} \partial_{x_1} f(x) \\ \vdots \\ \partial_{x_n}
+f(x)
+\end{pmatrix} = Df(x)^\top.
+\end{align*}
+\end{prop}
+\begin{prop}[Kettenregel]
+Ist $g: \R^n\hookrightarrow\R^m$ differenzierbar in $a$ und $f:
+\R^n\hookrightarrow\R$ in $f(a)$, so gilt
+\begin{align*}
+\nabla (f\circ g)(a) = Dg(a)^\top\nabla f(g(a)).
+\end{align*}
+\end{prop}
+\begin{prop}[Produktregel]
+Seien $f,g: V\hookrightarrow W$ differenzierbar, $\lin{\cdot,\cdot}: W\to
+\R$ eine Bilinearform und $\ph(x) = \lin{f(x),g(x)}$. Dann ist $\ph$
+differenzierbar und es gilt
+\begin{align*}
+\D\ph(x) = \lin{\D f(x)\cdot, g(x)} + \lin{f(x), \D g(x)\cdot}. 
+\end{align*}
+\end{prop}
+\begin{prop}[Mittelwertsatz]
+Ist $f \in C^1(\Omega,\R)$ und $[u,v]\subset\Omega$, dann existiert ein
+$\xi\in[u,v]$ sodass
+\begin{align*}
+f(v)-f(u) = Df(\xi)(v-u) = \lin{\nabla f(\xi),v-u}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Ist $f: \R^n\hookrightarrow\R$ in $x$ stetig differenzierbar und $\nabla
+f(x)\neq 0$, so bezeichnet $\nabla f(x)$ die Richtung des steilsten Anstiegs
+und $-\nabla f(x)$ die Richtung des steilsten Abstiegs. Beide Richtungen sind
+eindeutig.
+\end{prop}
+\begin{prop}
+Sei $Q := [a,b]\times[c,d]$ und sei $g: Q\to\R$ auf $Q$ stetig und stetig nach
+$y$ differenzierbar, dann ist auch
+\begin{align*}
+\ph: Q\to\R,\quad\ph(x,y) = \int_a^x g(s,y)\ds,
+\end{align*}
+nach $y$ differenzierbar und es gilt
+\begin{align*}
+\ph_y(x,y) = \int_a^x g_y(s,y)\ds.
+\end{align*}
+\end{prop}
+

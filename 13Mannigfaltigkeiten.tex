@@ -1,0 +1,103 @@
+\section{Mannigfaltigkeiten}
+
+\begin{defn}
+Eine nichtleere Teilmenge $M\subset \R^n$ heißt eine \emph{Mannigfaltigkeit} der
+\emph{Kodimension $m$}, falls eine offene Umgebung $\Omega$ von $M$ und eine
+stetig differenzierbare Abbildung ohne singuläre Punkte $f: \Omega\to\R^m$
+existiert, so dass gilt
+\begin{align*}
+M = f^{-1}(0) = \setdef{x\in\R^n}{f(x) = 0}.
+\end{align*}
+\end{defn}
+\begin{defn}
+Sei $f: \R^n\hookrightarrow\R^m$ stetig differenzierbar. Ein Punkt $w\in
+\R^m$ heißt \emph{regulärer Wert} von $f$, falls $f^{-1}(w)$ entweder leer ist
+oder nur aus regulären Punkten besteht. Andernfalls heißt $w$ \emph{singulärer}
+oder \emph{kritischer Wert} von $f$.
+\end{defn}
+\begin{defn}
+Eine nichtleere Teilmenge $M\subset\R^n$ heißt eine \emph{durch $f$ definierte
+Mannigfaltigkeit} im $\R^n$, falls $f$ in einer offenen Umgebung um $M$ stetig
+differenzierbar ist, regulären Wert $0$ hat, und $M = f^{-1}(0)$ gilt.
+\end{defn}
+\begin{defn}
+Ein Vektor $v\in\R^n$ heißt \emph{Tangentialvektor} an $M$ im Punkt $p$, falls
+es eine $C^1$-Kurve $\gamma: \R\hookrightarrow M$ gibt mit
+\begin{align*}
+\gamma(0) = p,\quad \dot{\gamma}(0) = v.
+\end{align*}
+\end{defn}
+\begin{defn}
+Die Menge aller Tangentialvektoren an $M$ im Punkt $p$ heißt
+\emph{Tangentialraum} von $M$ an $p$ und wird mit $T_pM$ bezeichnet.
+\end{defn}
+\begin{defn}
+Sei $M\subset\R^n$ eine Mannigfaltigkeit und $p\in M$. Dann heißt das
+orthogonale Komplement zum Tangentialraum $T_pM$ der \emph{Normalraum} von $M$
+in $p$ und wird mit $N_pM$ oder $T_p^\bot M$ bezeichnet. Seine Elemente heißen
+die \emph{Normalenvektoren} von $M$ in $p$.
+\end{defn}
+\begin{defn}
+Die \emph{Tangentialebene} an $M$ im Punkt $p$ ist die zu $T_pM$ parallele
+affine Ebene durch den Punkt $p$
+\begin{align*}
+E_p M = p + T_p M.
+\end{align*}
+\end{defn}
+
+\subsection{Sätze für gleichungsdefinierte Mannigfaltigkeiten}
+\begin{prop}
+Eine Mannigfaltikeit $M\subset\R^n$ der Kodimension $m$ ist lokal um jeden Punkt
+$p\in M$ der Graph einer Funktion $g: \R^{n-m}\hookrightarrow\R^m$.
+\end{prop}
+\begin{prop}
+Eine nichtleere Teilmenge $M\subset\R^n$ ist eine Mannigfaltigkeit genau dann,
+wenn gilt
+\begin{align*}
+M = f^{-1}(0),
+\end{align*}
+mit einer $C^1$-Funktion $f:\R^n\hookrightarrow\R^m$ mit regulärem Wert $0$. 
+\end{prop}
+\begin{prop}
+Ist $M$ eine durch $f$ definierte Mannigfaltigkeit, so gilt
+\begin{align*}
+T_pM = \ker Df(p),\quad p\in M
+\end{align*}
+Jeder $T_pM$ ist ein Vektorraum mit derselben Dimension wie $M$.
+\end{prop}
+\begin{prop}
+Sei $M$ eine durch $f$ definierte Mannigfaltigkeit der Kodimension $m$ im $\R^n$
+und $\lin{\cdot,\cdot}$ ein beliebiges Skalarprodukt im $\R^n$. Dann gilt \ldots
+\begin{align*}
+T_p^\bot M = \sp{\nabla f_1(p), \ldots, \nabla f_m(p)},\quad p\in M.
+\end{align*}
+\end{prop}
+
+\begin{prop}
+Sei $M$ eine Mannigfaltigkeit im $\R^n$ und $f:\R^n\hookrightarrow\R^m$ in
+einer Umgebung von $M$ stetig differenzierbar. Dann besitzt $f\big|_M$ einen kritischen Punkt in $p$
+genau dann, wenn
+\begin{align*}
+\nabla f(p) \in T_p^\bot M.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sei $M$ eine durch $g$ definierte Mannigfaltigkeit der Kodimension $m$ im
+$\R^n$ und sei $f: \R^n\hookrightarrow\R$ in einer Umgebung von $M$ stetig
+differenzierbar. Dann besitzt $f|_M$ einen kritischen Punkt in $p\in M$ genau
+dann, wenn es reelle Zahlen $\lambda_1,\ldots,\lambda_n$ gibt, sodass
+\begin{align*}
+\nabla f(p) = \sum\limits_{i=1}^n \lambda_i \nabla g_i(p).
+\end{align*}
+\end{prop}
+\begin{prop}
+Seien $f:\R^n\hookrightarrow\R$ und $g:\R^n\hookrightarrow\R^m$ auf einer
+offenen Teilmenge des $\R^n$ stetig differenzierbar, und sei $0$ ein regulärer
+Wert von $g$. Dann besitzt $f$ unter den Nebenbedingungen $g = 0$ genau dann
+einen kritischen Punkt in $p$, wenn die erweiterte Funktion
+\begin{align*}
+F: \R^n\times \R^m \hookrightarrow\R,\quad F(x,\lambda) = f(x) +
+\lin{\lambda,g(x)},
+\end{align*}
+einen kritischen Punkt $(p,\lambda)$ besitzt.
+\end{prop}

@@ -1,0 +1,238 @@
+\section{Differentialgleichungen}
+
+\begin{defn}
+Sei $I$ ein Intervall, $D\subset\R$ offen und $f:
+I\times D\to \R$ stetig, dann heißt
+\begin{align*}
+\dot{x} = f(t,x),
+\end{align*}
+eine \emph{Differentialgleichung erster Ordnung} auf $I\times D$. Eine Lösung
+dieser Differentialgleichung ist eine differenzierbare Abbildung
+\begin{align*}
+\ph(t) : J \to \R,\quad \varnothing \neq J \subset I,
+\end{align*}
+mit der Eigenschaft
+\begin{align*}
+\dot{\ph}(t) = f(t,\ph(t)),\quad t\in J.
+\end{align*}
+\end{defn}
+\begin{defn}
+Eine Differentialgleichung heißt \emph{autonom}, falls $f$ nicht explizit von
+$t$ abhängt, also gilt $f: D\to\R$ mit $\dot{x} = f(x)$. Andernfalls
+\emph{nichtautonom}.
+\end{defn}
+\begin{defn}
+Ein zu einer Differentialgleichung gehörendes System
+\begin{align*}
+\dot{x} = f(t,x),\quad x(t_0) = x_0,
+\end{align*}
+nennt man \emph{Anfangswertproblem}, wobei $(t_0,x_0)\in I\times D$. Eine lokale
+Lösung ist eine Lösung $\ph: I_0\to \R$ der Differentialgleichung mit
+\begin{align*}
+\ph(t_0) = x_0,\quad t_0\in I_0\subset I.
+\end{align*} 
+\end{defn}
+
+\subsection{Lineare Differentialgleichungen - Der homogene Fall}
+\begin{defn}
+Eine \emph{lineare Differentialgleichung erster Ordnung} hat die Form
+\begin{align*}
+\dot{x} = a(t)x + b(t),
+\end{align*}
+mit auf $I$ stetigen Funktionen $a$ und $b$. Sie heißt \emph{homogen}, falls
+$b=0$, andernfalls \emph{inhomogen}.
+\end{defn}
+
+\begin{prop}
+Sei $a$ stetig auf $I$. Dann ist die allgemeine Lösung der
+Differentialgleichung
+\begin{align*}
+\dot{x} = a(t)x,
+\end{align*}
+gegeben durch
+\begin{align*}
+\ph(t) = e^{A(t)}c, c \in\R
+\end{align*}
+mit einer beliebigen Stammfunktion $A$ von $a$. Sie existiert auf ganz $I$.
+\end{prop}
+% \begin{prop}[Quintesenz]
+% Den homogen Fall löst man also, indem man eine Stammfunktion $A$ von $a$
+% findet. Die allgemeine Lösung ist dann $\ph(t) = e^{A(t)}c$.
+% \end{prop}
+\begin{prop}
+Die Gesamtheit aller Lösungen bildet einen
+eindimensionalen Vektorraum
+\begin{align*}
+L_0 = \setdef{e^{A(t)}c}{c\in\R}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Das Anfangswertproblem 
+\begin{align*}
+\dot{x} = a(t)x, \quad x(t_0) = x_0,
+\end{align*}
+besitzt auf $I$ die eindeutige Lösung
+\begin{align*}
+\ph(t) = \exp\left(\int_{t_0}^t a(s)\ds\right)x_0.
+\end{align*}
+\end{prop}
+
+\subsection{Lineare Differentialgleichungen - Der inhomogene Fall}
+\begin{prop}
+Sei $\ph_0$ eine partikuläre Lösung der inhomogenen Gleichung
+\begin{align*}
+\dot{x} = a(t)x + b(t),
+\end{align*}
+dann hat jede andere Lösung die Form $\ph_0 + \ph$, mit einer Lösung $\ph$ der
+homogenen Gleichung.
+\end{prop}
+\begin{prop}
+Die Gesamtheit aller Lösungen bildet einen eindimensionalen affinen Vektorraum
+\begin{align*}
+L = \ph_0 + L_0 = \setdef{\ph_0 + e^{A(t)}c}{c\in\R}.
+\end{align*}
+\end{prop}
+\begin{prop}
+Sind $a$ und $b$ stetig auf $I$, dann ist die allgemeine Lösung von
+\begin{align*}
+\dot{x} = a(t)x + b(t),
+\end{align*}
+auf ganz $I$ erklärt und gegeben durch
+\begin{align*}
+\ph(t) = e^{A(t)}(c+c_0(t)),
+\end{align*}
+mit einer Stammfunktion $A$ von $a$ und $c_0$ von $e^{-A}b$.
+\end{prop}
+\begin{prop}
+Sind $a$ und $b$ stetig auf $I$, dann besitzt das Anfangswertproblem
+\begin{align*}
+\dot{x} = a(t)x + b(t),\quad \ph(t_0) = x_0,
+\end{align*}
+auf $I$ die eindeutige Lösung
+\begin{align*}
+\ph(t) = e^{A(t)}\left(c + \int_{t_0}^t e^{-A(s)}b(s)\ds \right), \quad
+ A(t) = \int_{t_0}^t a(s)\ds.
+\end{align*}
+\end{prop}
+
+\begin{prop}[Prozedur]
+Gegeben sei das Anfangswertproblem
+\begin{align*}
+\dot{x} = a(t)x + b(t), \quad x(t_0) = x_0.
+\end{align*}
+Zunächst löst man die homogene Gleichung $\dot{x} = a(t)x$, und erhält damit
+\begin{align*}
+\ph(t) = e^{A(t)}c,\quad A(t) = \int a(s)\ds.
+\end{align*}
+Mit Hilfe von $A(t)$ ergibt sich
+\begin{align*}
+c_0 = \int e^{-A(s)}b(s)\ds,
+\end{align*}
+und somit kann die inhomogene Gleichung gelöst werden
+\begin{align*}
+\ph(t) = e^{A(t)}(c + c_0).
+\end{align*}
+Nun setzt man $\ph(t_0) = x_0$ und löst nach $c$ auf.
+\end{prop}
+
+\subsection{Separierbare Differentialgleichungen}
+
+\begin{defn}
+Eine Differentialgleichung der Form
+\begin{align*}
+\dot{x} = g(t)h(x),
+\end{align*}
+mit stetigen Funktionen $g: I\to\R, h: J\to \R$ heißt \emph{separierbar}.
+\end{defn}
+
+\begin{prop}
+Sind $g,h$ stetig und $x_0$ Nullstelle von $h$, so ist die konstante Funktion
+$\ph\equiv x_0$ eine Lösung des Anfangswertproblems
+\begin{align*}
+\dot{x} = g(t)h(x),\quad \ph(t_0) = x_0.
+\end{align*}
+Ist $h$ lipschitz, so ist $\ph$ auch die einzige Lösung.
+\end{prop}
+\begin{prop}
+Seien $g,h$ stetig auf $I$ bzw. $J$ und $h(x)\neq 0$ für $x\in J$. Dann
+existiert genau eine lokale Lösung $\ph: I_0\to\R$ des Anfangswertproblems
+\begin{align*}
+\dot{x} = g(t)h(x),\quad \ph(t_0) = x_0,
+\end{align*}
+mit $t_0\in I$ und $x_0\in J$. Diese erfüllt die Gleichung
+\begin{align*}
+H(\ph(t)) = G(t),\quad t\in I_0,
+\end{align*}
+wobei
+\begin{align*}
+H(x) := \int_{x_0}^x \frac{\ds}{h(s)},\quad G(t) = \int_{t_0}^t
+g(s)\ds.
+\end{align*}
+\end{prop}
+\begin{prop}[Prozedur]
+Gegeben sei das Anfangswertproblem
+\begin{align*}
+\dot{x} = g(t)h(x),\quad \ph(t_0) = x_0.
+\end{align*}
+Zunächst prüft man $h(x)$ auf Nullstellen $n_i$. Gilt $n_i = x_0$ für ein $i$
+und ist $h(x)$ lipschitz, dann ist die einzige Lösung $\ph(t) \equiv x_0$.
+
+Andernfalls separiert man die Variablen $t$ und $x$ und erhält
+\begin{align*}
+& \dot{x} = \frac{\dx}{\dt} = g(t)h(x)\\
+\Leftrightarrow\;&\frac{\dx}{h(x)} = g(t)\dt\\
+\Leftrightarrow\;&H(x) = \int \frac{\dx}{h(x)} = \int g(t)\dt = G(t).
+\end{align*}
+Kann man $H$ invertieren, erhält man als lokale Lösung
+\begin{align*}
+\ph(t) = x = H^{-1}(G(t)).
+\end{align*}
+Zuletzt setzt man $\ph(t_0) = x_0$ und löst nach $c$ auf. 
+\end{prop}
+
+\subsection{Homogene Differentialgleichung}
+
+\begin{defn}
+Eine Differentialgleichung der Form
+\begin{align*}
+\dot{x} = f(t,x),
+\end{align*}
+heißt \emph{homogen}, falls $f(\lambda t, \lambda x) = f(t,x)$. In diesem Fall
+kann man $f(t,x)$ schreiben als $h\left(\frac{x}{t}\right)$.
+\end{defn}
+
+\begin{prop}
+Sei $h$ stetig auf $I$ und $\frac{x_0}{t_0}\in I$. Eine Funktion $\ph : I_0\to
+\R$ ist eine lokale Lösung des Anfangswertproblems
+\begin{align*}
+\dot{x} = h\left(\frac{x}{t}\right),\quad x(t_0) = x_0, 
+\end{align*}
+genau dann, wenn die Funktion
+\begin{align*}
+\psi: I_0\to\R,\quad \psi(t) = \frac{\ph(t)}{t}, 
+\end{align*}
+eine lokale Lösung des Anfangswertproblems
+\begin{align*}
+\dot{z} = \frac{h(z) - z}{t},\quad z(t_0) = \frac{x_0}{t_0},
+\end{align*}
+darstellt.
+\end{prop}
+
+\begin{prop}[Prozedur]
+Gegeben sei ein Anfangswertproblem
+\begin{align*}
+\dot{x} = f(t,x),\quad x(t_0) = x_0.
+\end{align*}
+Um die Prozedur anwenden zu können, ist es notwendig zu überprüfen, ob $f(\lambda t,\lambda x)$ für $\lambda >
+0$. In diesem Fall lässt sich $f$ schreiben als $f(t,x) = h\left(\frac{x}{t}\right)$.
+
+Zunächst substituiert man $z = \frac{x}{t}$ und damit gilt
+\begin{align*}
+t\dot{z} - z = \dot{x} = h(z) \Leftrightarrow \dot{z} = \frac{h(z)+z}{t}.
+\end{align*} 
+Diese Differentialgleichung ist separierbar und eine allgemeine Lösung kann mit
+der bekannten Prozedur bestimmt werden.
+
+Anschließend muss die Lösung für $z$ mit $\ph(t) = x = zt$ rücksubstituiert, und
+das Anfangswertproblem $\ph(t_0) = x_0$ gelöst werden.
+\end{prop}
